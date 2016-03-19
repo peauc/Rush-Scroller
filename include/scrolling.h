@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:37:50 2016 Paul Wery
-** Last update Sat Mar 19 10:45:16 2016 Paul Wery
+** Last update Sat Mar 19 11:22:47 2016 Paul Wery
 */
 
 #ifndef SCROLL
@@ -27,6 +27,7 @@ typedef struct		s_scroll
   int			sprite_wolf;
   int			start_wolf;
   int			next;
+  int			next_stage;
 }			t_scroll;
 
 void			scrolling(t_win *w, t_stage *list, t_stage *it);

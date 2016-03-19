@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 09:05:38 2016 Paul Wery
-** Last update Sat Mar 19 10:28:03 2016 Paul Wery
+** Last update Sat Mar 19 11:46:55 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -44,9 +44,13 @@ void			moove_wolf(t_scroll *s)
   t_bunny_position	posi;
 
   pos.x = s->start_wolf;
-  pos.y = WINH - 250;
+  pos.y = WINH - 150;
   posi.x = s->sprite_wolf * 200;
   posi.y = s->state_wolf * 200;
+  wolf(s, pos, posi);
+  pos.y = WINH - 250;
+  wolf(s, pos, posi);
+  pos.y = WINH - 350;
   wolf(s, pos, posi);
   if (turn == 1)
     s->sprite_wolf += 1;
