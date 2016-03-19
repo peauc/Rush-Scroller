@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sat Mar 19 19:59:46 2016 Paul Wery
+** Last update Sun Mar 20 00:06:21 2016 
 */
 
 #include <lapin.h>
@@ -39,37 +39,43 @@ t_bunny_response	my_mouse(t_bunny_event_state state,
 t_bunny_response	loop_pres(void *data)
 {
   t_win			*w;
+  t_text		*t;
+  t_bunny_position	pos;
 
   w = (t_win*)data;
+  t = (t_text*)data;
+  tektext(t, w->pix, "rush troller");
+  pos.x = 0;
+  pos.y = 0;
+  t->start->x++;
+  put_pix_in_pix_txt(t->back, w->pix, pos);
+  bunny_blit(&w->win->buffer, &t->back->clipable, NULL);
   bunny_display(w->win);
   return (GO_ON);
+}
+
+void	init_struc_text(t_text *text)
+{
+  t_bunny_position	pos;
+  if ((text->back = bunny_load_pixelarray("map/pres.png")) == NULL)
+    return ;
+  if ((text->font_png = bunny_load_pixelarray("map/text.png")) == NULL)
+    return ;
+  pos.x = WINL;
+  pos.y = WINH;
+  if ((text->back = resize_picture(text->back, pos)) == NULL)
+    return ;
+  text->start->x = 0;
+  text->start->y = 100;
 }
 
 void	presentation(t_win *w, t_stage *list,
 		     t_stage *it)
 {
-  t_bunny_pixelarray	*image;
-  t_bunny_position	pos;
+  t_text		text;
 
-  if ((image = bunny_load_pixelarray("map/wolf.jpg")) == NULL)
-    return ;
-  if ((w->text->font_png = bunny_load_pixelarray("map/text.png")) == NULL)
-    return ;
-  pos.x = WINL;
-  pos.y = WINH;
-  if ((image = resize_picture(image, pos)) == NULL)
-    return ;
+  init_struc_text(&text);
   pix_initialize_txt(w->pix);
-  tektext(w->pix, "bonjour", w->text->font_png);
-  pos.x = 0;
-  pos.y = 0;
-  put_pix_in_pix_txt(image, w->pix, pos);
-  bunny_blit(&w->win->buffer, &image->clipable, NULL);
-  if ((image = bunny_load_pixelarray("map/buton.png")) == NULL)
-    return ;
-  pos.x = WINL - 300;
-  pos.y = WINH - 150;
-  bunny_blit(&w->win->buffer, &image->clipable, &pos);
   bunny_set_loop_main_function(loop_pres);
   bunny_set_key_response((t_bunny_key)key_pres);
   bunny_set_click_response(&my_mouse);
