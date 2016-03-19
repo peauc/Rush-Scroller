@@ -8,3 +8,7 @@ Utiliser tekfunction;
 --> Pour ajouter une scène à appeler :
 Aller dans ini_files et ouvrir stages.ini;
 Puis écrire le nom de la scène à appeler suivit d'un \n;
+--> La fonction appelée devra prendre en paramètre :
+    - t_win (structure contenant la fenêtre et le pixelarray de départ)
+    - t_stage (racine de la liste)
+    - t_stage (l'élement contenant le nom de la fonction appelée)
