@@ -15,3 +15,10 @@ Puis écrire le nom de la scène à appeler suivit d'un \n;
 
 [19/03/2016 -> 08:50]
 création du scrolling;
+
+[19/03/2016 -> 10:50]
+Apparition du loup et 3 animations différentes;
+--> Touche espace : lance l'apparition du loup;
+--> Touche k : loup à l'arrêt;
+--> Touche l : vitesse de marche;
+--> Touche m : vitesse de course;
