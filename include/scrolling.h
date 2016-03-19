@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:37:50 2016 Paul Wery
-** Last update Sat Mar 19 11:22:47 2016 Paul Wery
+** Last update Sat Mar 19 17:43:50 2016 Paul Wery
 */
 
 #ifndef SCROLL
@@ -18,6 +18,7 @@ typedef struct		s_scroll
   t_bunny_pixelarray	*pix_one;
   int			start_one;
   t_bunny_pixelarray	*pix_two;
+  t_bunny_pixelarray	*pix_sol;
   int			start_two;
   t_bunny_pixelarray	*pix_three;
   int			start_three;
@@ -35,5 +36,6 @@ int			blit_pictures(t_scroll *s);
 t_bunny_pixelarray	*resize_picture(t_bunny_pixelarray *pix,
 					t_bunny_position pos);
 void			moove_wolf(t_scroll *s);
+void			moove_wolf_back(t_scroll *s);
 
 #endif /* !SCROLL */
