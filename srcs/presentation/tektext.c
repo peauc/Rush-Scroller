@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Feb 16 01:54:54 2016 Paul Wery
-** Last update Sat Mar 19 19:53:13 2016 
+** Last update Sat Mar 19 20:00:50 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -42,10 +42,9 @@ void                    put_pix_in_pix_txt(t_bunny_pixelarray *pix,
       posi.x = 0;
       while (pos.x < WINL)
 	{
-	  printf("%d %d\n", pos.y, pos.x);
 	  i = posi.x + (posi.y * src->clipable.clip_width);
 	  color = (t_color*)src->pixels + i;
-	  /* if (color->argb[3] != 0) */
+	  if (color->argb[3] != 0)
 	    tekpixel(pix, &pos, color, 0);
 	  pos.x++;
 	  posi.x++;
@@ -74,7 +73,7 @@ int     check_color_font(t_bunny_pixelarray *font_png,
 
 void		create_text(t_bunny_pixelarray *pix,
 			    t_bunny_pixelarray *font_png,
-			    t_bunny_position *pos,
+			    t_bunny_position *pos UNUSED,
 			    char *str,
 			    int i)
 {
@@ -82,7 +81,6 @@ void		create_text(t_bunny_pixelarray *pix,
   t_bunny_position	start;
   int			x;
   int			y;
-  int			n;
   int			j;
 
   y = -1;
@@ -116,7 +114,7 @@ void			tektext(t_bunny_pixelarray *out,
   t_bunny_position	pos;
   char			*write;
 
-  write = str;
+  write = (char*)str;
   text = "abcdefghijklmnopqrstuvwxyz1234567890.,:;<-()!?+";
   i = 0;
   while (write[i] != '\0' && write)

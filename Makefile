@@ -5,7 +5,7 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
-## Last update Sat Mar 19 19:15:44 2016 Paul Wery
+## Last update Sat Mar 19 19:29:33 2016 Paul Wery
 ##
 
 NAME	=	demo
@@ -34,7 +34,8 @@ SRCS	=	srcs/main_prog/main.c \
 		srcs/presentation/tektext.c \
 		srcs/Masque-Damier/events.c \
 		srcs/Masque-Damier/dam.c \
-		srcs/Masque-Damier/dam_two.c
+		srcs/Masque-Damier/dam_two.c \
+
 
 $(NAME)	:	$(OBJS)
 		$(CC) $(OBJS) -o $(NAME) -dsl -rdynamic $(LIB)
