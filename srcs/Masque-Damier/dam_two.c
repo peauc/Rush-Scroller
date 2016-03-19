@@ -5,25 +5,14 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 13:49:55 2016 Paul Wery
-** Last update Sat Mar 19 18:26:57 2016 Paul Wery
+** Last update Sat Mar 19 18:36:08 2016 Paul Wery
 */
 
 #include <lapin.h>
 #include "demo.h"
 
-void		reverse_color(t_color *color)
-{
-  unsigned int	gap;
-
-  gap = 0xFFFFFFFF - color->full;
-  if (gap < color->full)
-    color->full = 0xFF000000 + gap;
-  else
-    color->full = 0xFFFFFFFF - gap;
-}
-
-void			negative_two(t_dam *d, int width, int height,
-				     t_bunny_position size)
+void			negative_fourth(t_dam *d, int width, int height,
+					t_bunny_position size)
 {
   t_color		*color;
   t_bunny_position	pos;
@@ -33,7 +22,7 @@ void			negative_two(t_dam *d, int width, int height,
   while (pos.y >= 0)
     {
       color = (t_color*)d->pix->pixels + (pos.x + (pos.y * WINL));
-      if (size.y > height && size.x > width)
+      if (size.y < height && size.x > width)
 	reverse_color(color);
       pos.x -= 1;
       size.x += 1;
@@ -50,8 +39,8 @@ void			negative_two(t_dam *d, int width, int height,
     }
 }
 
-void			negative(t_dam *d, int width, int height,
-				 t_bunny_position size)
+void			negative_three(t_dam *d, int width, int height,
+				       t_bunny_position size)
 {
   t_color		*color;
   t_bunny_position	pos;
@@ -61,7 +50,7 @@ void			negative(t_dam *d, int width, int height,
   while (pos.y >= 0)
     {
       color = (t_color*)d->pix->pixels + (pos.x + (pos.y * WINL));
-      if (size.y < height && size.x < width)
+      if (size.y > height && size.x < width)
 	reverse_color(color);
       pos.x -= 1;
       size.x += 1;
@@ -78,7 +67,7 @@ void			negative(t_dam *d, int width, int height,
     }
 }
 
-void			dam(t_dam *d)
+void			dam_two(t_dam *d)
 {
   t_bunny_position	size;
   int			size_width;
@@ -88,6 +77,6 @@ void			dam(t_dam *d)
   size.y = 0;
   size_width = WINL / 10;
   size_height = WINH / 10;
-  negative(d, size_width, size_height, size);
-  negative_two(d, size_width, size_height, size);
+  negative_three(d, size_width, size_height, size);
+  negative_fourth(d, size_width, size_height, size);
 }

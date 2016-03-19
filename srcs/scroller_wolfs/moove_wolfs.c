@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 09:05:38 2016 Paul Wery
-** Last update Sat Mar 19 11:46:55 2016 Paul Wery
+** Last update Sat Mar 19 17:32:40 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -37,6 +37,30 @@ void			wolf(t_scroll *s, t_bunny_position pos,
     }
 }
 
+void			moove_wolf_back(t_scroll *s)
+{
+  static int		turn = 0;
+  t_bunny_position	pos;
+  t_bunny_position	posi;
+
+  pos.x = s->start_wolf;
+  pos.y = WINH - 450;
+  posi.x = s->sprite_wolf * 200;
+  posi.y = s->state_wolf * 200;
+  wolf(s, pos, posi);
+  if (turn == 1)
+    s->sprite_wolf += 1;
+  if (turn == 2)
+    turn = 0;
+  if (s->state_wolf == 1)
+    s->start_wolf += 3;
+  else if (s->state_wolf == 0)
+    s->start_wolf -= 3;
+  if ((s->sprite_wolf == 4 && s->state_wolf != 2) ||
+      (s->sprite_wolf == 3 && s->state_wolf == 2))
+    s->sprite_wolf = 0;
+}
+
 void			moove_wolf(t_scroll *s)
 {
   static int		turn = 0;
@@ -44,13 +68,12 @@ void			moove_wolf(t_scroll *s)
   t_bunny_position	posi;
 
   pos.x = s->start_wolf;
-  pos.y = WINH - 150;
+  pos.y = WINH - 200;
   posi.x = s->sprite_wolf * 200;
   posi.y = s->state_wolf * 200;
   wolf(s, pos, posi);
-  pos.y = WINH - 250;
-  wolf(s, pos, posi);
-  pos.y = WINH - 350;
+  pos.x = s->start_wolf - 150;
+  pos.y = WINH - 300;
   wolf(s, pos, posi);
   if (turn == 1)
     s->sprite_wolf += 1;

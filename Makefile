@@ -5,7 +5,7 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
-## Last update Sat Mar 19 18:05:26 2016 Clement Peau
+## Last update Sat Mar 19 19:09:14 2016 Clement Peau
 ##
 
 NAME	=	demo
@@ -29,8 +29,11 @@ SRCS	=	srcs/main_prog/main.c \
 		srcs/scroller_wolfs/tekpixel.c \
 		srcs/scroller_wolfs/resize.c \
 		srcs/scroller_wolfs/moove_wolfs.c \
+		srcs/presentation/events.c \
+		srcs/presentation/tektext.c \
 		srcs/Masque-Damier/events.c \
 		srcs/Masque-Damier/dam.c \
+		srcs/Masque-Damier/dam_two.c
 
 $(NAME)	:	$(OBJS)
 		$(CC) $(OBJS) -o $(NAME) -dsl -rdynamic $(LIB)
