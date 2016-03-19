@@ -5,12 +5,12 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Nov 18 23:21:25 2015 clement peau
-** Last update Sun Dec  6 20:08:16 2015 
+** Last update Sat Mar 19 19:34:12 2016 Clement Peau
 */
 
-#include "../include/struct.h"
+#include "rush_incendie.h"
 
-void	tekpixelplasma(t_bunny_pixelarray *pix,
+void	tekpixel(t_bunny_pixelarray *pix,
 		 t_bunny_position pos,
 		 t_color colo)
 {

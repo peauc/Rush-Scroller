@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Fri Nov 20 16:50:11 2015 clement peau
-** Last update Sat Nov 21 12:31:45 2015 clement peau
+** Last update Sat Mar 19 19:50:58 2016 Clement Peau
 */
 
-#include "../include/struct.h"
+#include "rush_incendie.h"
 
 void	prepare(t_bunny_pixelarray *pix)
 {

@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:43:43 2016 Paul Wery
-** Last update Sat Mar 19 20:29:24 2016 Clement Peau
+** Last update Sat Mar 19 22:55:16 2016 Clement Peau
 */
 
 #ifndef DEM
@@ -31,12 +31,14 @@ void	*tekfunction(const char *funcname);
 void	tekpixel(t_bunny_pixelarray *, t_bunny_position *pos,
 		 t_color *color, int state);
 void	pix_initialize(t_bunny_pixelarray *pix);
+void	pix_initialize_txt(t_bunny_pixelarray *);
+void	tektext(t_bunny_pixelarray *, const char *, t_bunny_pixelarray *);
+void	put_pix_in_pix_txt(t_bunny_pixelarray *, t_bunny_pixelarray *, t_bunny_position);
 
 #include "window.h"
 #include "scrolling.h"
 #include "struct_resize.h"
 #include "dam.h"
-#include "text.h"
 
 void    next_stage(t_win *w, t_stage *list, t_stage *it);
 

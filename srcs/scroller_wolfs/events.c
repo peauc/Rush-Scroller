@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sat Mar 19 18:01:32 2016 Paul Wery
+** Last update Sat Mar 19 18:56:57 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -20,25 +20,7 @@ t_bunny_response	key(t_bunny_event_state state,
   s = (t_scroll*)data;
   if (state == GO_UP && keysym == BKS_ESCAPE)
     return (EXIT_ON_SUCCESS);
-  else if (state == GO_UP && keysym == BKS_K)
-    {
-      s->sprite_wolf = 0;
-      s->state_wolf = 0;
-    }
-  else if (state == GO_UP && keysym == BKS_L)
-    {
-      s->sprite_wolf = 0;
-      s->state_wolf = 2;
-    }
-  else if (state == GO_UP && keysym == BKS_M)
-    {
-      s->sprite_wolf = 0;
-      s->state_wolf = 1;
-    }
-  else if (state == GO_UP && keysym == BKS_SPACE)
-    s->next = 1;
-  else if (state == GO_UP && keysym == 10)
-    s->next_stage = 1;
+  events_wolf(s, state, keysym);
   return (GO_ON);
 }
 
@@ -64,6 +46,7 @@ void	delete_scroll(t_scroll *s, t_win *w,
   bunny_delete_clipable(&s->pix_two->clipable);
   bunny_delete_clipable(&s->pix_three->clipable);
   bunny_delete_clipable(&s->wolf->clipable);
+  bunny_delete_clipable(&s->pix_sol->clipable);
   if (it->next != list)
     {
       if ((*(void **)(&next_stage) = tekfunction(it->next->stage)) == NULL)

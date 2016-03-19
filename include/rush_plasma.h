@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:23:46 2015 clement peau
-** Last update Fri Mar 18 21:25:20 2016 Clement Peau
+** Last update Sat Mar 19 22:36:14 2016 Clement Peau
 */
 
 #ifndef MY_STRUCT
@@ -20,7 +20,7 @@
 # define WIDTH 1920
 # define HEIGHT 1080
 
-typedef struct		s_data
+typedef struct		s_plasma
 {
   t_bunny_pixelarray	*pixel;
   t_color		*color;
@@ -30,21 +30,20 @@ typedef struct		s_data
   char			**tab;
   float			plasma;
   int			boole;
-}			t_data;
+}			t_plasma;
 
 t_bunny_response escape(t_bunny_event_state, t_bunny_keysym, void *);
-int splited_main(t_data *);
+int splited_main(t_plasma *);
 t_bunny_response mainloop(void *);
-int second_line(t_data *, int, unsigned int *);
+int second_line(t_plasma *, int, unsigned int *);
 t_color *palette();
 void tekpixelplasma(t_bunny_pixelarray *, t_bunny_position, t_color);
-void first_lines(t_data *);
+void first_lines(t_plasma *);
 void fillplasma(t_bunny_pixelarray *);
-void calculate(t_data *);
+void calculate(t_plasma *);
 t_color *colorplasma();
 void fill(t_bunny_pixelarray *);
-void tekpixel(t_bunny_pixelarray *, t_bunny_position, t_color);
 void prepare(t_bunny_pixelarray *);
-int tab_setting(t_data *);
-void plasma(t_data *);
+int tab_setting(t_plasma *);
+void plasma(t_plasma *);
 #endif	/* MY_STRUCT  */

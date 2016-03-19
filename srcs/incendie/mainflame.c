@@ -5,10 +5,12 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Mar 19 16:30:23 2016 Clement Peau
+** Last update Sat Mar 19 20:18:41 2016 Clement Peau
 */
 
-#include "../include/struct.h"
+#include "rush_incendie.h"
+#include "../../include/window.h"
+#include "../../include/demo.h"
 
 t_bunny_response	escape(t_bunny_event_state state,
 			       t_bunny_keysym key,
@@ -21,18 +23,16 @@ t_bunny_response	escape(t_bunny_event_state state,
   return (GO_ON);
 }
 
-int			splited_main(t_data *data)
+int			splited_main(t_flame *data)
 {
-  data->plasma += 0.07;
-  if (data->plasma > 5)
-    data->plasma = 0.1;
-  plasma(data);
+  first_lines(data);
+  calculate(data);
   return (1);
 }
 
 t_bunny_response       	mainloop(void *tmp)
 {
-  t_data		*data;
+  t_flame		*data;
 
   data = tmp;
   if (splited_main(data) == 0)
@@ -42,22 +42,24 @@ t_bunny_response       	mainloop(void *tmp)
   return (GO_ON);
 }
 
-int			main()
+int			flamy_flamy(t_win *win, t_stage *stage, t_stage *actual)
 {
-  t_data		data;
+  t_flame		data;
 
-  data.window = bunny_start(1920, 1080, false, "test");
-  data.pixel = bunny_new_pixelarray(1920, 1080);
-  fillplasma(data.pixel);
-  tab_setting(&data);
-  data.color = colorplasma();
-  data.boole = 0;
+  data.window = win->win;
+  data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT);
+  fill(data.pixel);
+  if ((data.color = palette()) == NULL)
+    return (0);
+  if ((tab_setting(&data)) == 0)
+    return (0);
   bunny_set_loop_main_function(mainloop);
   bunny_set_key_response(&escape);
-  if (bunny_loop(data.window, 60, &data) == 0)
+  if (bunny_loop(data.window, 20, &data) == 0)
     return (0);
+  bunny_stop(data.window);
+  /* bunny_free(data.tab); */
   bunny_free(data.color);
   bunny_delete_clipable(&data.pixel->clipable);
-  bunny_stop(data.window);
   return (1);
 }

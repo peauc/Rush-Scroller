@@ -5,7 +5,9 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sat Mar 19 22:40:40 2016 Clement Peau
+## Last update Sat Mar 19 22:56:18 2016 Clement Peau
+## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
+## Last update Sat Mar 19 19:29:33 2016 Paul Wery
 ##
 
 RELEASE	=	no
@@ -34,7 +36,6 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/incendie/mainflame.c		\
 		srcs/incendie/plasma.c			\
 		srcs/incendie/prepare.c 		\
-
 
 OBJ	=	$(SRC:.c=.o)
 

@@ -5,12 +5,12 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sun Dec  6 16:52:40 2015
-** Last update Fri Mar 18 20:36:16 2016 Clement Peau
+** Last update Sat Mar 19 22:35:47 2016 Clement Peau
 */
 
-#include "../include/struct.h"
+#include "rush_plasma.h"
 
-int	tab_setting(t_data *data)
+int	tab_setting_plasma(t_plasma *data)
 {
   int	i;
 
@@ -24,7 +24,7 @@ int	tab_setting(t_data *data)
   return (1);
 }
 
-void	 plasma(t_data *data)
+void	 plasma(t_plasma *data)
 {
   int			i;
   t_bunny_position	pos;
@@ -38,8 +38,8 @@ void	 plasma(t_data *data)
       data->tab[i / WIDTH][i % WIDTH] =  ( 43 + (43 * sin(pos.x / 16.0))
 					  + 43 + (43 * sin(pos.y / 16.0))
 					  ) / data->plasma;
-      tekpixelplasma(data->pixel, pos, data->color[(int)data->tab[i / WIDTH]
-						   [i % WIDTH]]);
+      tekpixel(data->pixel, pos, &data->color[(int)data->tab[i / WIDTH]
+					      [i % WIDTH]], 0);
       i--;
     }
 }

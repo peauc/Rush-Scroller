@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sat Mar 19 17:37:34 2016 
+** Last update Sat Mar 19 19:59:46 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -38,10 +38,10 @@ t_bunny_response	my_mouse(t_bunny_event_state state,
 
 t_bunny_response	loop_pres(void *data)
 {
-  t_text			*s;
+  t_win			*w;
 
-  s = (t_text*)data;
-  bunny_display(s->win);
+  w = (t_win*)data;
+  bunny_display(w->win);
   return (GO_ON);
 }
 
@@ -53,19 +53,23 @@ void	presentation(t_win *w, t_stage *list,
 
   if ((image = bunny_load_pixelarray("map/wolf.jpg")) == NULL)
     return ;
+  if ((w->text->font_png = bunny_load_pixelarray("map/text.png")) == NULL)
+    return ;
   pos.x = WINL;
   pos.y = WINH;
   if ((image = resize_picture(image, pos)) == NULL)
     return ;
+  pix_initialize_txt(w->pix);
+  tektext(w->pix, "bonjour", w->text->font_png);
+  pos.x = 0;
+  pos.y = 0;
+  put_pix_in_pix_txt(image, w->pix, pos);
   bunny_blit(&w->win->buffer, &image->clipable, NULL);
   if ((image = bunny_load_pixelarray("map/buton.png")) == NULL)
     return ;
   pos.x = WINL - 300;
   pos.y = WINH - 150;
   bunny_blit(&w->win->buffer, &image->clipable, &pos);
-  if ((image = bunny_load_pixelarray("map/text.png")) == NULL)
-    return ;
-  tektext(&w->win, "bonjour", image);
   bunny_set_loop_main_function(loop_pres);
   bunny_set_key_response((t_bunny_key)key_pres);
   bunny_set_click_response(&my_mouse);

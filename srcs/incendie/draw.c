@@ -5,12 +5,12 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Fri Dec  4 21:56:24 2015
-** Last update Fri Mar 18 22:08:27 2016 Clement Peau
+** Last update Sat Mar 19 22:29:07 2016 Clement Peau
 */
 
-#include "../include/struct.h"
+#include "rush_incendie.h"
 
-int			tab_setting(t_data *data)
+int			tab_setting(t_flame *data)
 {
   int			i;
   int			k;
@@ -31,7 +31,7 @@ int			tab_setting(t_data *data)
   return (1);
 }
 
-void			first_lines(t_data *data)
+void			first_lines(t_flame *data)
 {
   int			i;
 
@@ -44,7 +44,7 @@ void			first_lines(t_data *data)
     }
 }
 
-void			calculate(t_data *data)
+void			calculate(t_flame *data)
 {
   int			i;
   t_bunny_position	pos;
@@ -62,7 +62,8 @@ void			calculate(t_data *data)
 					 [(i + 1) % WIDTH]) / 4;
       pos.x = i % WIDTH;
       pos.y = i / WIDTH;
-      tekpixel(data->pixel, pos, data->color[(int)data->tab[i / WIDTH][i % WIDTH]]);
+      tekpixel(data->pixel, &pos, &data->color[(int)data->tab
+					     [i / WIDTH][i % WIDTH]], 0);
       i--;
     }
 }

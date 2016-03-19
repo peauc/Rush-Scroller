@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sun Dec  6 17:18:49 2015
-** Last update Fri Mar 18 20:35:07 2016 Clement Peau
+** Last update Sat Mar 19 19:32:51 2016 Clement Peau
 */
 
-#include "../include/struct.h"
+#include "rush_incendie.h"
 
 void	redtoblue(int i, t_color *palet)
 {
