@@ -5,10 +5,10 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
-## Last update Sat Mar 19 09:52:36 2016 Paul Wery
+## Last update Sat Mar 19 11:32:38 2016 
 ##
 
-NAME	=	démo
+NAME	=	demo
 
 RM	=	rm -f
 
