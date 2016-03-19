@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Fri Dec  4 20:13:22 2015
-## Last update Fri Mar 18 19:55:52 2016 Clement Peau
+## Last update Sat Mar 19 20:10:03 2016 Clement Peau
 ##
 
 SRC=	src/mainflame.c \
@@ -28,7 +28,7 @@ NAME2=	plasma
 
 NAME=	incendie
 
-CC=	gcc -g
+CC=	clang -g -Iinclude/
 
 CFLAGS=	-W -Wall -ansi -pedantic
 

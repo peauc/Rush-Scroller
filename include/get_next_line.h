@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Jan  5 01:26:12 2016 paul wery
-** Last update Sat Mar 19 00:36:54 2016 Paul Wery
+** Last update Sat Mar 19 20:13:07 2016 Clement Peau
 */
 
 #ifndef GET_NEXT_LINE

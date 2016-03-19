@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:43:43 2016 Paul Wery
-** Last update Sat Mar 19 23:57:02 2016 
+** Last update Sun Mar 20 00:07:35 2016 
 */
 
 #ifndef DEM
@@ -28,7 +28,7 @@ int	add_elem_next(t_stage *elem, char *stage);
 void	delete_list(t_stage **root);
 void	empty_list(t_stage *root);
 void	*tekfunction(const char *funcname);
-void	tekpixel(t_bunny_pixelarray *pix, t_bunny_position *pos,
+void	tekpixel(t_bunny_pixelarray *, t_bunny_position *pos,
 		 t_color *color, int state);
 void	pix_initialize(t_bunny_pixelarray *pix);
 void	pix_initialize_txt(t_bunny_pixelarray *);
