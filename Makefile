@@ -5,7 +5,7 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
-## Last update Sat Mar 19 16:10:45 2016 
+## Last update Sat Mar 19 16:12:07 2016 
 ##
 
 NAME	=	demo
@@ -29,6 +29,7 @@ SRCS	=	srcs/main_prog/main.c \
 		srcs/scroller_wolfs/tekpixel.c \
 		srcs/scroller_wolfs/resize.c \
 		srcs/scroller_wolfs/moove_wolfs.c \
+		srcs/presentation/events.c \
 		srcs/Masque-Damier/events.c \
 		srcs/Masque-Damier/dam.c \
 

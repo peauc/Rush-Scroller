@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sat Mar 19 16:09:03 2016 
+** Last update Sat Mar 19 16:12:54 2016 
 */
 
 #include <lapin.h>
@@ -29,8 +29,8 @@ t_bunny_response	my_mouse(t_bunny_event_state state,
   if (but == BMB_LEFT && state == GO_DOWN)
     {
       click = bunny_get_mouse_position();
-      if (click.x > WINL - 300 && click.x < WINL - 166
-	  && click.y > WINH - 150 && click.y < WINH - 16)
+      if (click->x > WINL - 300 && click->x < WINL - 166
+	  && click->y > WINH - 150 && click->y < WINH - 16)
 	return (EXIT_ON_SUCCESS);
     }
   return (GO_ON);
@@ -65,7 +65,7 @@ void	presentation(t_win *w, t_stage *list,
   bunny_blit(&w->win->buffer, &image->clipable, &pos);
   bunny_set_loop_main_function(loop_pres);
   bunny_set_key_response((t_bunny_key)key_pres);
-  bunny_ste_click_response(&my_mouse);
+  bunny_set_click_response(&my_mouse);
   bunny_loop(w->win, 0, w);
   next_stage(w, list, it);
 }
