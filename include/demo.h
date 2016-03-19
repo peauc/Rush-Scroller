@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:43:43 2016 Paul Wery
-** Last update Sat Mar 19 13:59:31 2016 Paul Wery
+** Last update Sat Mar 19 15:35:28 2016 Paul Wery
 */
 
 #ifndef DEM
@@ -36,5 +36,7 @@ void	pix_initialize(t_bunny_pixelarray *pix);
 #include "scrolling.h"
 #include "struct_resize.h"
 #include "dam.h"
+
+void    next_stage(t_win *w, t_stage *list, t_stage *it);
 
 #endif /* !DEM */

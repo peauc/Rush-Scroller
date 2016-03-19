@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sat Mar 19 14:10:07 2016 Paul Wery
+** Last update Sat Mar 19 15:35:39 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -30,12 +30,10 @@ t_bunny_response	loopi(void *data)
   return (GO_ON);
 }
 
-void	next_stage(t_dam *d, t_win *w,
-		   t_stage *list, t_stage *it)
+void	next_stage(t_win *w, t_stage *list, t_stage *it)
 {
   void	(*next_stage)(t_win *, t_stage *, t_stage *);
 
-  bunny_delete_clipable(&d->filter->clipable);
   if (it->next != list)
     {
       if ((*(void **)(&next_stage) = tekfunction(it->next->stage)) == NULL)
@@ -49,10 +47,13 @@ void	damier(t_win *w, t_stage *list,
 {
   t_dam	d;
 
+  d.win = w->win;
+  d.pix = w->pix;
   if ((d.filter = bunny_new_pixelarray(WINL, WINH)) == NULL)
     return ;
   bunny_set_loop_main_function(loopi);
   bunny_set_key_response((t_bunny_key)keyi);
   bunny_loop(w->win, 0, &d);
-  next_stage(&d, w, list, it);
+  bunny_delete_clipable(&d.filter->clipable);
+  next_stage(w, list, it);
 }

@@ -5,7 +5,7 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
-## Last update Sat Mar 19 14:59:37 2016 
+## Last update Sat Mar 19 16:10:45 2016 
 ##
 
 NAME	=	demo
@@ -14,7 +14,7 @@ RM	=	rm -f
 
 CC	=	gcc -g
 
-CFLAGS	=	-W -Wall -Werror -Iinclude -I/home/${USER}/.froot/include
+CFLAGS	=	-W -Wall -Iinclude -I/home/${USER}/.froot/include
 
 LIB	=	-L/home/${USER}/.froot/lib -llapin -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -lstdc++ -ldl -lm
 
@@ -29,9 +29,8 @@ SRCS	=	srcs/main_prog/main.c \
 		srcs/scroller_wolfs/tekpixel.c \
 		srcs/scroller_wolfs/resize.c \
 		srcs/scroller_wolfs/moove_wolfs.c \
-		srcs/presentation/events.c \
 		srcs/Masque-Damier/events.c \
-		srcs/Masque-Damier/dam.c
+		srcs/Masque-Damier/dam.c \
 
 $(NAME)	:	$(OBJS)
 		$(CC) $(OBJS) -o $(NAME) -dsl -rdynamic $(LIB)

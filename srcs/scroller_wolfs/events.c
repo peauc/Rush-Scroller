@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sat Mar 19 11:25:28 2016 Paul Wery
+** Last update Sat Mar 19 15:28:45 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -79,7 +79,7 @@ int	ini_scroll(t_scroll *s, t_win *w)
   if ((s->pix_one = bunny_load_pixelarray("map/montagnes.png")) == NULL)
     return (-1);
   s->start_one = 0;
-  if ((s->pix_two = bunny_load_pixelarray("map/forêt.png")) == NULL)
+  if ((s->pix_two = bunny_load_pixelarray("map/tree.png")) == NULL)
     return (-1);
   s->start_two = 0;
   if ((s->pix_three = bunny_load_pixelarray("map/herbe.png")) == NULL)
@@ -112,8 +112,8 @@ void			scrolling(t_win *w, t_stage *list,
   pos.y = s.wolf->clipable.clip_height * 2;
   if ((s.wolf = resize_picture(s.wolf, pos)) == NULL)
     return ;
-  pos.x = s.pix_two->clipable.clip_width * 2;
-  pos.y = s.pix_two->clipable.clip_height * 2;
+  pos.x = s.pix_two->clipable.clip_width * 1.5;
+  pos.y = s.pix_two->clipable.clip_height * 1.5;
   if ((s.pix_two = resize_picture(s.pix_two, pos)) == NULL)
     return ;
   bunny_set_loop_main_function(loop);

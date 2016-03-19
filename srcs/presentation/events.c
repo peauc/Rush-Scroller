@@ -5,27 +5,42 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sat Mar 19 14:56:35 2016 
+** Last update Sat Mar 19 16:09:03 2016 
 */
 
 #include <lapin.h>
 #include "demo.h"
 
-t_bunny_response	key(t_bunny_event_state state,
-			    t_bunny_keysym keysym,
-			    void *data UNUSED)
+t_bunny_response	key_pres(t_bunny_event_state state,
+				 t_bunny_keysym keysym,
+				 void *data UNUSED)
 {
   if (state == GO_UP && keysym == BKS_ESCAPE)
     return (EXIT_ON_SUCCESS);
   return (GO_ON);
 }
 
-t_bunny_response	loop(void *data)
+t_bunny_response	my_mouse(t_bunny_event_state state,
+				 t_bunny_mouse_button but,
+				 void *data UNUSED)
 {
-  t_scroll		*s;
+  const t_bunny_position	*click;
 
-  s = (t_scroll*)data;
-  bunny_blit(&s->win->buffer, &s->pix->clipable, NULL);
+  if (but == BMB_LEFT && state == GO_DOWN)
+    {
+      click = bunny_get_mouse_position();
+      if (click.x > WINL - 300 && click.x < WINL - 166
+	  && click.y > WINH - 150 && click.y < WINH - 16)
+	return (EXIT_ON_SUCCESS);
+    }
+  return (GO_ON);
+}
+
+t_bunny_response	loop_pres(void *data)
+{
+  t_win			*s;
+
+  s = (t_win*)data;
   bunny_display(s->win);
   return (GO_ON);
 }
@@ -33,7 +48,6 @@ t_bunny_response	loop(void *data)
 void	presentation(t_win *w, t_stage *list,
 		     t_stage *it)
 {
-  t_dam	d;
   t_bunny_pixelarray	*image;
   t_bunny_position	pos;
 
@@ -43,9 +57,15 @@ void	presentation(t_win *w, t_stage *list,
   pos.y = WINH;
   if ((image = resize_picture(image, pos)) == NULL)
     return ;
-  bunny_blit(&w->win->buffer, &w->pix->clipable, NULL);
-  bunny_set_loop_main_function(loop);
-  bunny_set_key_response((t_bunny_key)key);
-  bunny_loop(w->win, 0, &d);
-  next->stage(&d, w, list, it);
+  bunny_blit(&w->win->buffer, &image->clipable, NULL);
+  if ((image = bunny_load_pixelarray("map/buton.png")) == NULL)
+    return ;
+  pos.x = WINL - 300;
+  pos.y = WINH - 150;
+  bunny_blit(&w->win->buffer, &image->clipable, &pos);
+  bunny_set_loop_main_function(loop_pres);
+  bunny_set_key_response((t_bunny_key)key_pres);
+  bunny_ste_click_response(&my_mouse);
+  bunny_loop(w->win, 0, w);
+  next_stage(w, list, it);
 }
