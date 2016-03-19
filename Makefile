@@ -5,7 +5,7 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
-## Last update Sat Mar 19 18:52:07 2016 
+## Last update Sat Mar 19 19:09:14 2016 Clement Peau
 ##
 
 NAME	=	demo
@@ -38,12 +38,12 @@ SRCS	=	srcs/main_prog/main.c \
 $(NAME)	:	$(OBJS)
 		$(CC) $(OBJS) -o $(NAME) -dsl -rdynamic $(LIB)
 
-all	:	$(NAME)
+all:		$(NAME)
 
-clean	:
+clean:
 		$(RM) $(OBJS)
 
-fclean	:	clean
+fclean:		clean
 		$(RM) $(NAME)
 
 re	:	fclean all
