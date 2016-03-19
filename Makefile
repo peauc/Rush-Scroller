@@ -5,14 +5,14 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
-## Last update Sat Mar 19 01:06:50 2016 Paul Wery
+## Last update Sat Mar 19 06:16:11 2016 Paul Wery
 ##
 
 NAME	=	démo
 
 RM	=	rm -f
 
-CC	=	gcc
+CC	=	gcc -g
 
 CFLAGS	=	-W -Wall -Werror -Iinclude -I/home/${USER}/.froot/include
 
@@ -24,6 +24,10 @@ SRCS	=	srcs/main_prog/main.c \
 		srcs/main_prog/my_list.c \
 		srcs/main_prog/get_next_line.c \
 		srcs/main_prog/tekfunction.c \
+		srcs/scroller_wolfs/events.c \
+		srcs/scroller_wolfs/blit_pictures.c \
+		srcs/scroller_wolfs/tekpixel.c \
+		srcs/scroller_wolfs/resize.c
 
 $(NAME)	:	$(OBJS)
 		$(CC) $(OBJS) -o $(NAME) -dsl -rdynamic $(LIB)

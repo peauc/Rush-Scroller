@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:43:43 2016 Paul Wery
-** Last update Sat Mar 19 01:06:59 2016 Paul Wery
+** Last update Sat Mar 19 06:41:16 2016 Paul Wery
 */
 
 #ifndef DEM
@@ -22,13 +22,18 @@ typedef struct		s_stage
 
 typedef struct	stat t_stat;
 
-char		*get_next_line(int fd);
-t_stage		*create_list(void);
-int		add_elem_next(t_stage *elem, char *stage);
-void		delete_list(t_stage **root);
-void		empty_list(t_stage *root);
-void		*tekfunction(const char *funcname);
+char	*get_next_line(int fd);
+t_stage	*create_list(void);
+int	add_elem_next(t_stage *elem, char *stage);
+void	delete_list(t_stage **root);
+void	empty_list(t_stage *root);
+void	*tekfunction(const char *funcname);
+void	tekpixel(t_bunny_pixelarray *pix, t_bunny_position *pos,
+		 t_color *color, int state);
+void	pix_initialize(t_bunny_pixelarray *pix);
 
 #include "window.h"
+#include "scrolling.h"
+#include "struct_resize.h"
 
 #endif /* !DEM */

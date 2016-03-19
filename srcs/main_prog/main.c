@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:31:36 2016 Paul Wery
-** Last update Sat Mar 19 01:05:57 2016 Paul Wery
+** Last update Sat Mar 19 07:17:52 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -14,9 +14,9 @@
 #include <fcntl.h>
 #include "demo.h"
 
-int	full_list(t_stage *list)
+int	full_list(t_stage *list, t_win *w)
 {
-  void	(*next_stage)(void);
+  void	(*next_stage)(t_win *, t_stage *, t_stage *);
   char	*stage;
   int	fd;
 
@@ -29,7 +29,7 @@ int	full_list(t_stage *list)
     }
   if ((*(void **)(&next_stage) = tekfunction(list->next->stage)) == NULL)
     return (-1);
-  (*next_stage)();
+  (*next_stage)(w, list, list->next);
   return (0);
 }
 
@@ -39,12 +39,12 @@ int		main()
   t_stage	*list;
 
   bunny_set_maximum_ram(RAM * 1000000);
-  if ((w.win = bunny_start(WINL, WINH, false, "demo")) == NULL
+  if ((w.win = bunny_start(WINL, WINH, true, "demo")) == NULL
       || (w.pix = bunny_new_pixelarray(WINL, WINH)) == NULL)
     return (0);
   if ((list = create_list()) == NULL)
     return (0);
-  if (full_list(list) == -1)
+  if (full_list(list, &w) == -1)
     return (0);
   return (0);
 }
