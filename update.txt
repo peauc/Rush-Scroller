@@ -12,3 +12,6 @@ Puis écrire le nom de la scène à appeler suivit d'un \n;
     - t_win (structure contenant la fenêtre et le pixelarray de départ)
     - t_stage (racine de la liste)
     - t_stage (l'élement contenant le nom de la fonction appelée)
+
+[19/03/2016 -> 08:50]
+création du scrolling;
