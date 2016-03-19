@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:37:50 2016 Paul Wery
-** Last update Sat Mar 19 17:43:50 2016 Paul Wery
+** Last update Sat Mar 19 18:56:16 2016 Paul Wery
 */
 
 #ifndef SCROLL
@@ -37,5 +37,7 @@ t_bunny_pixelarray	*resize_picture(t_bunny_pixelarray *pix,
 					t_bunny_position pos);
 void			moove_wolf(t_scroll *s);
 void			moove_wolf_back(t_scroll *s);
+void			events_wolf(t_scroll *s, t_bunny_event_state state,
+				    t_bunny_keysym keysym);
 
 #endif /* !SCROLL */

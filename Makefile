@@ -5,7 +5,7 @@
 ## Login   <wery_p@epitech.net>
 ##
 ## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
-## Last update Sat Mar 19 18:28:26 2016 Paul Wery
+## Last update Sat Mar 19 18:56:29 2016 Paul Wery
 ##
 
 NAME	=	demo
@@ -14,7 +14,7 @@ RM	=	rm -f
 
 CC	=	gcc -g
 
-CFLAGS	=	-W -Wall -Iinclude -I/home/${USER}/.froot/include
+CFLAGS	=	-W -Wall -Werror -Iinclude -I/home/${USER}/.froot/include
 
 LIB	=	-L/home/${USER}/.froot/lib -llapin -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -lstdc++ -ldl -lm
 
@@ -25,6 +25,7 @@ SRCS	=	srcs/main_prog/main.c \
 		srcs/main_prog/get_next_line.c \
 		srcs/main_prog/tekfunction.c \
 		srcs/scroller_wolfs/events.c \
+		srcs/scroller_wolfs/my_events.c \
 		srcs/scroller_wolfs/blit_pictures.c \
 		srcs/scroller_wolfs/tekpixel.c \
 		srcs/scroller_wolfs/resize.c \
