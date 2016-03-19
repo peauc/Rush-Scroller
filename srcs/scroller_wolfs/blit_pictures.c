@@ -5,19 +5,31 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 03:20:15 2016 Paul Wery
-** Last update Sat Mar 19 16:32:08 2016 Paul Wery
+** Last update Sat Mar 19 18:00:38 2016 Paul Wery
 */
 
 #include <lapin.h>
 #include "demo.h"
 
-void	actualize_pos(t_bunny_position *posi,
-		      int state)
+void	actualize_pos(t_bunny_position *pos,
+		      t_bunny_position *posi,
+		      int state, int st)
 {
-  if (state == 0)
-    posi->x += 1;
-  else if (state == 1)
-    posi->x -= 1;
+  if (st == 0)
+    {
+      pos->x += 1;
+      if (state == 0)
+	posi->x += 1;
+      else if (state == 1)
+	posi->x -= 1;
+    }
+  else
+    {
+      pos->x = 0;
+      pos->y += 1;
+      posi->x = st - 1;
+      posi->y += 1;
+    }
 }
 
 void			put_pix_in_pix(t_scroll *s,
@@ -25,14 +37,13 @@ void			put_pix_in_pix(t_scroll *s,
 				       t_bunny_position pos,
 				       int start)
 {
-  static int		state = 0;
+  int			state;
   t_bunny_position	posi;
   t_color		*color;
   int			i;
 
   posi.x = start;
   posi.y = 0;
-  state = 0;
   while (pos.y < WINH && posi.y < src->clipable.clip_height)
     {
       state = 0;
@@ -41,18 +52,13 @@ void			put_pix_in_pix(t_scroll *s,
 	  i = posi.x + (posi.y * src->clipable.clip_width);
 	  color = (t_color*)src->pixels + i;
 	  tekpixel(s->pix, &pos, color, s->state);
-	  pos.x += 1;
-	  actualize_pos(&posi, state);
-	  if (posi.x == (src->clipable.clip_width -1))
+	  actualize_pos(&pos, &posi, state, 0);
+	  if (posi.x == (src->clipable.clip_width - 1))
 	    state = 1;
 	  else if (posi.x == 0)
 	    state = 0;
 	}
-      pos.x = 0;
-      pos.y += 1;
-      if (state == 0)
-	posi.x = start;
-      posi.y += 1;
+      actualize_pos(&pos, &posi, state, start + 1);
     }
 }
 
@@ -97,8 +103,12 @@ int			blit_pictures(t_scroll *s)
   pos.y = WINH - s->pix_three->clipable.clip_height;
   s->state = 1;
   put_pix_in_pix(s, s->pix_three, pos, s->start_three);
-  pos.y = WINH - s->pix_two->clipable.clip_height - (WINH / 4);
   s->state = 2;
+  pos.y = WINH - s->pix_two->clipable.clip_height - (WINH / 10);
+  put_pix_in_pix(s, s->pix_sol, pos, s->start_two);
+  if (s->next == 1)
+    moove_wolf_back(s);
+  pos.y = WINH - s->pix_two->clipable.clip_height - (WINH / 4);
   put_pix_in_pix(s, s->pix_two, pos, s->start_two);
   actualize_start(s);
   return (0);

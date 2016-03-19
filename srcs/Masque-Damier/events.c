@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sat Mar 19 15:35:39 2016 Paul Wery
+** Last update Sat Mar 19 18:41:41 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -22,11 +22,19 @@ t_bunny_response	keyi(t_bunny_event_state state,
 
 t_bunny_response	loopi(void *data)
 {
+  static int		turn = 0;
   t_dam			*d;
 
   d = (t_dam*)data;
+  if (turn == 0)
+    dam(d);
+  else if (turn == 35)
+    dam_two(d);
   bunny_blit(&d->win->buffer, &d->pix->clipable, NULL);
   bunny_display(d->win);
+  turn += 1;
+  if (turn == 36)
+    turn = 0;
   return (GO_ON);
 }
 
