@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 03:20:15 2016 Paul Wery
-** Last update Sat Mar 19 16:06:42 2016 Paul Wery
+** Last update Sat Mar 19 16:32:08 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -25,16 +25,17 @@ void			put_pix_in_pix(t_scroll *s,
 				       t_bunny_position pos,
 				       int start)
 {
+  static int		state = 0;
   t_bunny_position	posi;
   t_color		*color;
   int			i;
-  int			state;
 
   posi.x = start;
   posi.y = 0;
   state = 0;
   while (pos.y < WINH && posi.y < src->clipable.clip_height)
     {
+      state = 0;
       while (pos.x < WINL)
 	{
 	  i = posi.x + (posi.y * src->clipable.clip_width);
@@ -42,17 +43,15 @@ void			put_pix_in_pix(t_scroll *s,
 	  tekpixel(s->pix, &pos, color, s->state);
 	  pos.x += 1;
 	  actualize_pos(&posi, state);
-	  if (posi.x >= (src->clipable.clip_width -1))
+	  if (posi.x == (src->clipable.clip_width -1))
 	    state = 1;
-	  else if (posi.x <= 0)
+	  else if (posi.x == 0)
 	    state = 0;
 	}
       pos.x = 0;
       pos.y += 1;
       if (state == 0)
 	posi.x = start;
-      else if (state == 1)
-	posi.x = src->clipable.clip_width - start;
       posi.y += 1;
     }
 }
