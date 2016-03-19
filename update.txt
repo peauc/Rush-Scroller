@@ -1,0 +1,10 @@
+[19/03/2016 -> 01:10]
+création du main.c -> fenêtre et pixelarray;
+création de la liste des scènes à appelées;
+création de l'appel des scènes;
+
+--> Pour appeler une scène :
+Utiliser tekfunction;
+--> Pour ajouter une scène à appeler :
+Aller dans ini_files et ouvrir stages.ini;
+Puis écrire le nom de la scène à appeler suivit d'un \n;

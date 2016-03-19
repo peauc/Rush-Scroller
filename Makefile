@@ -1,35 +1,41 @@
 ##
-## Makefile for  in /home/peau_c/bin
+## Makefile for makefile in /home/wery_p/rendu/gfx_scroller
 ##
-## Made by ~/bin
-## Login   <peau_c@epitech.net>
+## Made by Paul Wery
+## Login   <wery_p@epitech.net>
 ##
-## Started on  TEST_FILE
-## Last update Fri Mar 18 19:53:50 2016 Clement Peau
+## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
+## Last update Sat Mar 19 01:06:50 2016 Paul Wery
 ##
 
-SRC=	src/main.c \
+NAME	=	démo
 
-OBJ=	$(SRC:.c=.o)
+RM	=	rm -f
 
-CFLAGS=	-W -Wall -Werror -ansi -pedantic -Wextra -Iinc
+CC	=	gcc
 
-CMD=	-llapin -lsfml-audio -lsfml-graphics -lsfml-window
-CMD+=	-lsfml-system -lstdc++ -ldl -L ~/.froot/lib -lm
+CFLAGS	=	-W -Wall -Werror -Iinclude -I/home/${USER}/.froot/include
 
-LIB=	-I inc/
+LIB	=	-L/home/${USER}/.froot/lib -llapin -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -lstdc++ -ldl -lm
 
-NAME=	TEST
+OBJS	=	$(SRCS:.c=.o)
 
-$(NAME):	$(OBJ)
-		$(CC) $(OBJ) $(CMD)
+SRCS	=	srcs/main_prog/main.c \
+		srcs/main_prog/my_list.c \
+		srcs/main_prog/get_next_line.c \
+		srcs/main_prog/tekfunction.c \
 
-all:		$(NAME)
+$(NAME)	:	$(OBJS)
+		$(CC) $(OBJS) -o $(NAME) -dsl -rdynamic $(LIB)
 
-clean:
-		rm -rf $(OBJ)
+all	:	$(NAME)
 
-fclean:		clean
-		rm -rf $(NAME)
+clean	:
+		$(RM) $(OBJS)
 
-re:		fclean all
+fclean	:	clean
+		$(RM) $(NAME)
+
+re	:	fclean all
+
+.PHONY	:	all clean fclean re
