@@ -5,12 +5,12 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sun Dec  6 16:52:40 2015
-** Last update Sun Mar 20 18:54:13 2016 Clement Peau
+** Last update Sun Mar 20 19:47:56 2016 Poc
 */
 
 #include "plasma.h"
 
-int	tab_setting(t_data *data)
+int	tab_setting_plasma(t_data *data)
 {
   int	i;
 
@@ -21,6 +21,7 @@ int	tab_setting(t_data *data)
   while (i != HEIGHT + 1)
     if ((data->tab[i++] = bunny_malloc(WIDTH * sizeof(char))) == NULL)
       return (0);
+  return (1);
 }
 
 void	 plasma(t_data *data)

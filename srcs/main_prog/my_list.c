@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:41:57 2016 Paul Wery
-** Last update Sat Mar 19 00:47:49 2016 Paul Wery
+** Last update Sun Mar 20 17:54:31 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -22,8 +22,8 @@ void		empty_list(t_stage *root)
   while (it != root)
     {
       save = it->next;
-      free(it->stage);
-      free(it);
+      bunny_free(it->stage);
+      bunny_free(it);
       it = save;
     }
 }
@@ -31,7 +31,7 @@ void		empty_list(t_stage *root)
 void	delete_list(t_stage **root)
 {
   empty_list(*root);
-  free(*root);
+  bunny_free(*root);
   *root = NULL;
 }
 
@@ -39,7 +39,7 @@ int		add_elem_next(t_stage *elem, char *stage)
 {
   t_stage	*new_elem;
 
-  if ((new_elem = malloc(sizeof(*new_elem))) == NULL)
+  if ((new_elem = bunny_malloc(sizeof(*new_elem))) == NULL)
     return (-1);
   new_elem->stage = stage;
   new_elem->next = elem;
@@ -53,7 +53,7 @@ t_stage		*create_list(void)
 {
   t_stage	*root;
 
-  if ((root = malloc(sizeof(*root))) == NULL)
+  if ((root = bunny_malloc(sizeof(*root))) == NULL)
     return (NULL);
   root->prev = root;
   root->next = root;

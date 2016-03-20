@@ -5,12 +5,12 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sun Mar 20 19:06:04 2016 Clement Peau
+## Last update Sun Mar 20 19:53:47 2016 Poc
 ##
 
 RELEASE	=	no
 
-POC	=	yes
+POC	=	no
 
 SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/main_prog/main.c			\
@@ -31,23 +31,22 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/scroller_wolfs/moove_wolfs.c	\
 		srcs/scroller_wolfs/resize.c		\
 		srcs/scroller_wolfs/tekpixel.c		\
-		srcs/flammy_plasmy/color.c		\
-		srcs/flammy_plasmy/colorplasma.c	\
-		srcs/flammy_plasmy/draw.c		\
-		srcs/flammy_plasmy/fill.c		\
-		srcs/flammy_plasmy/fillplasma.c		\
-		srcs/flammy_plasmy/mainflame.c		\
-		srcs/flammy_plasmy/mainplasma.c		\
-		srcs/flammy_plasmy/plasma.c		\
-		srcs/flammy_plasmy/prepare.c 		\
 		srcs/plasmy/colorplasma.c		\
 		srcs/plasmy/fillplasma.c		\
 		srcs/plasmy/plasma.c			\
 		srcs/plasmy/tekpixelplasma.c		\
 		srcs/plasmy/mainplasma.c		\
+		srcs/flammy/color.c			\
+		srcs/flammy/draw.c			\
+		srcs/flammy/fill.c			\
+		srcs/flammy/mainflame.c			\
+		srcs/flammy/prepare.c			\
+		srcs/flammy/draw_scroll_flammy.c	\
 		srcs/degrade/events.c			\
 		srcs/degrade/degraded.c			\
 		srcs/degrade/tekpix.c			\
+		srcs/starfield/frontal.c		\
+		srcs/starfield/starfield.c		\
 
 OBJ	=	$(SRC:.c=.o)
 

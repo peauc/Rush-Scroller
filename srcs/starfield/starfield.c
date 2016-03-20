@@ -5,13 +5,14 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Mar 20 13:46:53 2016 Clement Peau
+** Last update Sun Mar 20 18:33:03 2016 Paul Wery
 */
 
-#include "default.h"
+#include <lapin.h>
+#include "demo.h"
 
-t_star			*init_starfield(t_bunny_pixelarray *pix, int nb,
-					int mode)
+t_star			*init_starfield(t_bunny_pixelarray *pix,
+					int nb)
 {
   t_star		*star;
   int			i;

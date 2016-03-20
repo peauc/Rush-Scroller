@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:43:43 2016 Paul Wery
-** Last update Sun Mar 20 19:08:38 2016 Clement Peau
+** Last update Sun Mar 20 19:17:24 2016 Poc
 */
 
 #ifndef DEM
@@ -22,15 +22,15 @@ typedef struct		s_stage
 }			t_stage;
 
 #include <lapin.h>
-#include "plasmy.h"
 #include "window.h"
 #include "scrolling.h"
 #include "struct_resize.h"
 #include "dam.h"
 
-# ifndef MY_STRUCT
+# ifndef PLASMA
 #  include "flammy.h"
 # endif
+
 char	*get_next_line(int fd);
 t_stage	*create_list(void);
 int	add_elem_next(t_stage *elem, char *stage);

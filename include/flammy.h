@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:23:46 2015 clement peau
-** Last update Sun Mar 20 17:20:04 2016 
+** Last update Sun Mar 20 18:54:31 2016 
 */
 
 #ifndef MY_FLAMMY
@@ -21,9 +21,18 @@
 # define WIDTH 1920
 # define HEIGHT 1080
 
+typedef struct	t_star
+{
+  int		y;
+  float		x;
+  float		x_speed;
+  float		y_speed;
+}		t_star;
+
 typedef struct		s_flame
 {
   t_bunny_pixelarray	*pixel;
+  t_star		*star;
   t_color		*color;
   t_bunny_window	*window;
   t_bunny_ini		*ini;
@@ -32,6 +41,7 @@ typedef struct		s_flame
   float			plasma;
   int			boole;
   int			exit;
+  int			state;
 }			t_flame;
 
 t_bunny_response	escape(t_bunny_event_state, t_bunny_keysym, void *);
@@ -49,5 +59,11 @@ void			fill(t_bunny_pixelarray *);
 void			prepare(t_bunny_pixelarray *);
 int			tab_setting(t_flame *);
 void			plasma(t_flame *);
+void			draw_scroll(t_flame *);
+void			frontal_stars(t_bunny_pixelarray *,
+				      t_star *, int);
+t_star			*init_starfield(t_bunny_pixelarray *,
+					int);
+void			starfield(t_bunny_pixelarray *, t_star *, int);
 
 #endif	/* MY_FLAMMy  */
