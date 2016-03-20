@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Feb 16 01:54:54 2016 Paul Wery
-** Last update Sun Mar 20 12:08:23 2016 
+** Last update Sun Mar 20 15:06:00 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -94,7 +94,7 @@ void		create_text(t_win *w,
         {
 	  color = (t_color*)w->text->font_png->pixels + j;
 	  if (check_color_font(w->text->font_png, j++) == 0)
-	    tekpixel(w->pix, &start, color, 0);
+	    tekpixel(w->text->pix, &start, color, 0);
 	  start.x++;
         }
       j += (w->text->font_png->clipable.clip_width) - 32;

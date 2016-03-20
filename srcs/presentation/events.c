@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sun Mar 20 12:35:04 2016 
+** Last update Sun Mar 20 15:10:55 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -42,7 +42,8 @@ t_bunny_response	loop_pres(void *data)
   t_bunny_position	pos;
 
   w = (t_win*)data;
-  pix_initialize_txt(w->text->back);
+  pix_initialize(w->pix);
+  pix_initialize(w->text->pix);
   tektext(w, "marel maud", w->text->start1);
   pos.x = 0;
   pos.y = 0;
@@ -50,8 +51,6 @@ t_bunny_response	loop_pres(void *data)
     w->text->start1.x += 10;
   if (w->text->start1.y < 700)
     w->text->start1.y += 6;
-  put_pix_in_pix_txt(w->text->back, w->pix, pos);
-  pix_initialize_txt(w->pix);
   tektext(w, "peau clement", w->text->start2);
   pos.x = 0;
   pos.y = 0;
@@ -59,8 +58,6 @@ t_bunny_response	loop_pres(void *data)
     w->text->start2.x += 10;
   if (w->text->start2.y < 800)
     w->text->start2.y += 6;
-  put_pix_in_pix_txt(w->text->back, w->pix, pos);
-  pix_initialize_txt(w->pix);
   tektext(w, "wery paul", w->text->start3);
   pos.x = 0;
   pos.y = 0;
@@ -68,15 +65,14 @@ t_bunny_response	loop_pres(void *data)
     w->text->start3.x += 8;
   if (w->text->start3.y < 900)
     w->text->start3.y += 4;
-  put_pix_in_pix_txt(w->text->back, w->pix, pos);
-  pix_initialize_txt(w->pix);
   pos.x = WINL / 4;
   pos.y = 100;
   tektext(w, "rush troller", pos);
   pos.x = 0;
   pos.y = 0;
-  put_pix_in_pix_txt(w->text->back, w->pix, pos);
-  bunny_blit(&w->win->buffer, &w->text->back->clipable, NULL);
+  put_pix_in_pix_txt(w->pix, w->text->back, pos);
+  put_pix_in_pix_txt(w->pix, w->text->pix, pos);
+  bunny_blit(&w->win->buffer, &w->pix->clipable, NULL);
   bunny_display(w->win);
   return (GO_ON);
 }
@@ -94,6 +90,8 @@ void	init_struc_text(t_win *w)
   pos.x = WINL;
   pos.y = WINH;
   if ((w->text->back = resize_picture(w->text->back, pos)) == NULL)
+    return ;
+  if ((w->text->pix = bunny_new_pixelarray(WINL, WINH)) == NULL)
     return ;
   w->text->start1.x = 0;
   w->text->start1.y = 0;
