@@ -5,10 +5,11 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sun Dec  6 16:52:40 2015
-** Last update Sat Mar 19 22:35:47 2016 Clement Peau
+** Last update Sun Mar 20 10:41:04 2016 Clement Peau
 */
 
 #include "rush_plasma.h"
+#include "demo.h"
 
 int	tab_setting_plasma(t_plasma *data)
 {
@@ -38,7 +39,7 @@ void	 plasma(t_plasma *data)
       data->tab[i / WIDTH][i % WIDTH] =  ( 43 + (43 * sin(pos.x / 16.0))
 					  + 43 + (43 * sin(pos.y / 16.0))
 					  ) / data->plasma;
-      tekpixel(data->pixel, pos, &data->color[(int)data->tab[i / WIDTH]
+      tekpixel(data->pixel, &pos, &data->color[(int)data->tab[i / WIDTH]
 					      [i % WIDTH]], 0);
       i--;
     }

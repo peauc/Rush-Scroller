@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sat Mar 19 22:56:18 2016 Clement Peau
+## Last update Sun Mar 20 10:43:53 2016 Clement Peau
 ## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
 ## Last update Sat Mar 19 19:29:33 2016 Paul Wery
 ##
@@ -28,6 +28,7 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/scroller_wolfs/moove_wolfs.c	\
 		srcs/scroller_wolfs/resize.c		\
 		srcs/scroller_wolfs/tekpixel.c		\
+		srcs/scroller_wolfs/my_events.c		\
 		srcs/incendie/color.c			\
 		srcs/incendie/colorplasma.c		\
 		srcs/incendie/draw.c			\
@@ -61,7 +62,7 @@ $(NAME): 	$(OBJ)
 		@ echo "[OK] > Linking"
 		@ echo "Feeding some sweets to the AERs..."
 		@ echo "[OK] > Done"
-		@ gcc $(OBJ) -o $(NAME) $(CMD)
+		@ gcc $(OBJ) -o $(NAME) $(CMD) -rdynamic -dsl
 		@ echo -e "\033[1;32m \t \t \t ♩♪♫ DEMO\033[0;32m®\033[1;32m Compiled Sucesfully ♩♪♫\033[0m "
 
 all:		 $(NAME)

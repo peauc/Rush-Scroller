@@ -5,13 +5,14 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:31:36 2016 Paul Wery
-** Last update Sat Mar 19 22:50:30 2016 Clement Peau
+** Last update Sun Mar 20 10:42:14 2016 Clement Peau
 */
 
 #include <lapin.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdio.h>
 #include "demo.h"
 
 int	full_list(t_stage *list, t_win *w)
