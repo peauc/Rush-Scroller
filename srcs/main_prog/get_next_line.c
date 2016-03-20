@@ -5,12 +5,14 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Wed Feb 10 22:29:28 2016 Paul Wery
-** Last update Sat Mar 19 00:24:30 2016 Paul Wery
+** Last update Sun Mar 20 17:57:14 2016 Paul Wery
 */
 
+#include <lapin.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "get_next_line.h"
+#include "demo.h"
 
 void	*my_realloc(char *str, int new_size)
 {
@@ -18,7 +20,7 @@ void	*my_realloc(char *str, int new_size)
   int	n;
 
   n = 0;
-  if ((line = malloc(new_size)) == NULL)
+  if ((line = bunny_malloc(new_size)) == NULL)
     return (NULL);
   while (n < (new_size - 1))
     {
@@ -30,7 +32,7 @@ void	*my_realloc(char *str, int new_size)
       line[n] = '\0';
       n = n + 1;
     }
-  free(str);
+  bunny_free(str);
   return (line);
 }
 
@@ -62,9 +64,9 @@ char	*get_next_line(int fd)
   int	i;
 
   i = 0;
-  if ((line = malloc(2)) == NULL)
+  if ((line = bunny_malloc(2)) == NULL)
     return (NULL);
-  if ((buffer = malloc(2)) == NULL)
+  if ((buffer = bunny_malloc(2)) == NULL)
     return (NULL);
   ini_line_buffer(line, buffer);
   while (buffer[0] != '\n' && (buffer[0] != '\0' || i == 0))
@@ -78,6 +80,6 @@ char	*get_next_line(int fd)
 	    return (NULL);
 	}
     }
-  free(buffer);
+  bunny_free(buffer);
   return (line);
 }
