@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sun Mar 20 15:40:34 2016 Paul Wery
+** Last update Sun Mar 20 15:41:36 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -113,7 +113,7 @@ void	presentation(t_win *w, t_stage *list,
   if (init_struc_text(w) == -1)
     return ;
   bunny_set_loop_main_function(loop_pres);
-  exit = bunny_set_key_response((t_bunny_key)key_pres);
+  bunny_set_key_response((t_bunny_key)key_pres);
   bunny_set_click_response(&my_mouse);
   bunny_loop(w->win, 0, w);
   if (w->exit == 0)
