@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sun Mar 20 10:50:15 2016 
+## Last update Sun Mar 20 14:16:05 2016 
 ##
 
 RELEASE	=	no
@@ -21,6 +21,8 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/Masque-Damier/events.c		\
 		srcs/presentation/events.c		\
 		srcs/presentation/tektext.c		\
+		srcs/presentation/title.c		\
+		srcs/presentation/tekpixel_int.c	\
 		srcs/scroller_wolfs/blit_pictures.c	\
 		srcs/scroller_wolfs/events.c		\
 		srcs/scroller_wolfs/my_events.c		\

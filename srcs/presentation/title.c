@@ -5,13 +5,44 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Feb 16 01:54:54 2016 Paul Wery
-** Last update Sun Mar 20 12:33:52 2016 
+** Last update Sun Mar 20 14:48:22 2016 
 */
 
 #include <lapin.h>
 #include <stdio.h>
 #include "demo.h"
 
+void		draw_title_front(t_win *w,
+				 t_bunny_position st,
+				 int i)
+{
+  int			x;
+  int			y;
+  t_bunny_position	start;
+  static int		j;
+  static int		alt;
+  int			v;
+  t_color		*color;
+
+  start.y = st.y - j;
+  v = (st.x + 5) + (start.y + alt) * w->text->font_png->clipable.clip_width;
+  while (start.y > 0)
+    {
+      start.x = st.x;
+      while (--start.x > i)
+	{
+	  color = (t_color*)w->text->font_png->pixels + v;
+	  tekpixel(w->pix, &start, color, 0);
+	}
+      start.y -= 2;
+    }
+  if (alt == 3)
+    {
+      j++;
+      alt = 0;
+    }
+  alt++;
+}
 
 void		create_title(t_win *w,
 			    t_bunny_position *pos,
@@ -39,8 +70,9 @@ void		create_title(t_win *w,
 	  start.x++;
         }
       j += (w->text->font_png->clipable.clip_width) - 32;
-      start.y +=  2;
+      start.y += 3;
     }
+  draw_title_front(w, start, st.x + (i * 33));
 }
 
 void			title(t_win *w,

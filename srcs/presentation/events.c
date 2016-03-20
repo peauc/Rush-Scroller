@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sun Mar 20 12:35:04 2016 
+** Last update Sun Mar 20 14:33:12 2016 
 */
 
 #include <lapin.h>
@@ -71,8 +71,8 @@ t_bunny_response	loop_pres(void *data)
   put_pix_in_pix_txt(w->text->back, w->pix, pos);
   pix_initialize_txt(w->pix);
   pos.x = WINL / 4;
-  pos.y = 100;
-  tektext(w, "rush troller", pos);
+  pos.y =50;
+  title(w, "rush troller", pos);
   pos.x = 0;
   pos.y = 0;
   put_pix_in_pix_txt(w->text->back, w->pix, pos);
