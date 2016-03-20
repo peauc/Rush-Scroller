@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 13:50:57 2016 Paul Wery
-** Last update Sat Mar 19 18:33:12 2016 Paul Wery
+** Last update Sun Mar 20 15:56:16 2016 Paul Wery
 */
 
 #ifndef DAM
@@ -16,6 +16,7 @@ typedef struct		s_dam
   t_bunny_window	*win;
   t_bunny_pixelarray	*pix;
   t_bunny_pixelarray	*filter;
+  int			exit;
 }			t_dam;
 
 void	dam(t_dam *d);

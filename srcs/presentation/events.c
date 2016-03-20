@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sun Mar 20 15:41:36 2016 Paul Wery
+** Last update Sun Mar 20 15:47:20 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -19,7 +19,10 @@ t_bunny_response	key_pres(t_bunny_event_state state,
 
   w = (t_win*)data;
   if (state == GO_UP && keysym == BKS_ESCAPE)
-    return (EXIT_ON_ERROR);
+    {
+      w->exit = 1;
+      return (EXIT_ON_ERROR);
+    }
   return (GO_ON);
 }
 

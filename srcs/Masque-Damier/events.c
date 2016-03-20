@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sun Mar 20 15:22:16 2016 Paul Wery
+** Last update Sun Mar 20 15:58:04 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -13,9 +13,17 @@
 
 t_bunny_response	keyi(t_bunny_event_state state,
 			     t_bunny_keysym keysym,
-			     void *data UNUSED)
+			     void *data)
 {
+  t_dam			*d;
+
+  d = (t_dam*)data;
   if (state == GO_UP && keysym == BKS_ESCAPE)
+    {
+      d->exit = 1;
+      return (EXIT_ON_SUCCESS);
+    }
+  if (state == GO_UP && keysym == BKS_RETURN)
     return (EXIT_ON_SUCCESS);
   return (GO_ON);
 }
@@ -59,6 +67,7 @@ void			damier(t_win *w, t_stage *list,
   pos.x = WINL;
   pos.y = WINH;
   d.win = w->win;
+  d.exit = 0;
   if ((d.pix = bunny_load_pixelarray("map/dragon.jpeg")) == NULL)
     return ;
   if ((d.pix = resize_picture(d.pix, pos)) == NULL)
@@ -69,5 +78,6 @@ void			damier(t_win *w, t_stage *list,
   bunny_set_key_response((t_bunny_key)keyi);
   bunny_loop(w->win, 0, &d);
   bunny_delete_clipable(&d.filter->clipable);
-  next_stage(w, list, it);
+  if (d.exit == 0)
+    next_stage(w, list, it);
 }
