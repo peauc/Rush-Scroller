@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sat Mar 19 18:41:41 2016 Paul Wery
+** Last update Sun Mar 20 15:22:16 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -50,13 +50,19 @@ void	next_stage(t_win *w, t_stage *list, t_stage *it)
     }
 }
 
-void	damier(t_win *w, t_stage *list,
-	       t_stage *it)
+void			damier(t_win *w, t_stage *list,
+			       t_stage *it)
 {
-  t_dam	d;
+  t_dam			d;
+  t_bunny_position	pos;
 
+  pos.x = WINL;
+  pos.y = WINH;
   d.win = w->win;
-  d.pix = w->pix;
+  if ((d.pix = bunny_load_pixelarray("map/dragon.jpeg")) == NULL)
+    return ;
+  if ((d.pix = resize_picture(d.pix, pos)) == NULL)
+    return ;
   if ((d.filter = bunny_new_pixelarray(WINL, WINH)) == NULL)
     return ;
   bunny_set_loop_main_function(loopi);

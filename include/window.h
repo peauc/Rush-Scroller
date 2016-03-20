@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:33:36 2016 Paul Wery
-** Last update Sun Mar 20 15:02:58 2016 Paul Wery
+** Last update Sun Mar 20 15:26:02 2016 Paul Wery
 */
 
 #ifndef WIN
@@ -32,5 +32,9 @@ typedef struct		s_win
   t_bunny_pixelarray	*pix;
   t_text		*text;
 }			t_win;
+
+void	title(t_win *w, const char *str,
+	      t_bunny_position st);
+int	check_color_font(t_bunny_pixelarray *font_png, int i);
 
 #endif /* !WIN */
