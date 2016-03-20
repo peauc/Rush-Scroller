@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sun Mar 20 15:15:23 2016 
+** Last update Sun Mar 20 15:36:08 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -13,10 +13,13 @@
 
 t_bunny_response	key_pres(t_bunny_event_state state,
 				 t_bunny_keysym keysym,
-				 void *data UNUSED)
+				 void *data)
 {
+  t_win			*w;
+
+  w = (t_win*)data;
   if (state == GO_UP && keysym == BKS_ESCAPE)
-    return (EXIT_ON_SUCCESS);
+    return (EXIT_ON_ERROR);
   return (GO_ON);
 }
 
@@ -104,10 +107,12 @@ void	init_struc_text(t_win *w)
 void	presentation(t_win *w, t_stage *list,
 		     t_stage *it)
 {
+  w->exit = 0;
   init_struc_text(w);
   bunny_set_loop_main_function(loop_pres);
-  bunny_set_key_response((t_bunny_key)key_pres);
+  exit = bunny_set_key_response((t_bunny_key)key_pres);
   bunny_set_click_response(&my_mouse);
   bunny_loop(w->win, 0, w);
-  next_stage(w, list, it);
+  if (w->exit == 0)
+    next_stage(w, list, it);
 }
