@@ -5,10 +5,11 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Feb 16 01:54:54 2016 Paul Wery
-** Last update Sat Mar 19 20:00:50 2016 Paul Wery
+** Last update Sun Mar 20 00:02:59 2016 
 */
 
 #include <lapin.h>
+#include <stdio.h>
 #include "demo.h"
 
 void		pix_initialize_txt(t_bunny_pixelarray *pix)
@@ -71,10 +72,9 @@ int     check_color_font(t_bunny_pixelarray *font_png,
   return (0);
 }
 
-void		create_text(t_bunny_pixelarray *pix,
-			    t_bunny_pixelarray *font_png,
-			    t_bunny_position *pos UNUSED,
-			    char *str,
+void		create_text(t_text *t,
+			    t_bunny_pixelarray *pix,
+			    t_bunny_position *pos,
 			    int i)
 {
   t_color		*color;
@@ -84,29 +84,27 @@ void		create_text(t_bunny_pixelarray *pix,
   int			j;
 
   y = -1;
-  j = str[i] * 32;
+  j = pos->x + (pos->y * t->font_png->clipable.clip_width);
   start.y = 0;
   while (++y < 38)
     {
       x = -1;
-      start.x = 0 + (i * 33);
+      start.x = t->start->x + (i * 33);
       while (++x < 32)
         {
-	  color = (t_color*)font_png->pixels + x + (y * font_png->clipable.clip_width);
-	  if (check_color_font(font_png, j++) == 0)
-	    {
-	      tekpixel(pix, &start, color, 0);
-	    }
+	  color = (t_color*)t->font_png->pixels + j;
+	  if (check_color_font(t->font_png, j++) == 0)
+	    tekpixel(pix, &start, color, 0);
 	  start.x++;
         }
-      j += (font_png->clipable.clip_width) - 32;
+      j += (t->font_png->clipable.clip_width) - 32;
       start.y++;
     }
 }
 
-void			tektext(t_bunny_pixelarray *out,
-				const char *str,
-				t_bunny_pixelarray *font_png)
+void			tektext(t_text *t,
+				t_bunny_pixelarray *out,
+				const char *str)
 {
   int			n;
   char			*text;
@@ -120,11 +118,14 @@ void			tektext(t_bunny_pixelarray *out,
   while (write[i] != '\0' && write)
     {
       n = 0;
-      while (text[n] != write[i])
+      while (text[n] != write[i] && text)
 	n++;
-      pos.x = n * 32 - (32 * n / 320) * 320;
-      pos.y = (n * 32 / 320) * 38;
+      if (n < 47)
+	{
+	  pos.x = n % 10 * 32;
+	  pos.y = n / 10 * 39;
+	  create_text(t, out, &pos, i);
+	}
       i++;
-      create_text(out, font_png, &pos, text, n);
     }
 }
