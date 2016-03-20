@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sun Mar 20 18:54:41 2016 
+## Last update Sun Mar 20 19:04:54 2016 
 ##
 
 RELEASE	=	no
@@ -32,13 +32,9 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/scroller_wolfs/resize.c		\
 		srcs/scroller_wolfs/tekpixel.c		\
 		srcs/flammy_plasmy/color.c		\
-		srcs/flammy_plasmy/colorplasma.c	\
 		srcs/flammy_plasmy/draw.c		\
 		srcs/flammy_plasmy/fill.c		\
-		srcs/flammy_plasmy/fillplasma.c		\
 		srcs/flammy_plasmy/mainflame.c		\
-		srcs/flammy_plasmy/mainplasma.c		\
-		srcs/flammy_plasmy/plasma.c		\
 		srcs/flammy_plasmy/prepare.c 		\
 		srcs/flammy_plasmy/draw_scroll_flammy.c	\
 		srcs/degrade/events.c			\
