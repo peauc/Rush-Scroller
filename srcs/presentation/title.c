@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Feb 16 01:54:54 2016 Paul Wery
-** Last update Sun Mar 20 14:48:22 2016 
+** Last update Sun Mar 20 15:26:10 2016 
 */
 
 #include <lapin.h>
@@ -32,16 +32,11 @@ void		draw_title_front(t_win *w,
       while (--start.x > i)
 	{
 	  color = (t_color*)w->text->font_png->pixels + v;
-	  tekpixel(w->pix, &start, color, 0);
+	  tekpixel_int(w->text->pix, &start, BLACK);
 	}
       start.y -= 2;
     }
-  if (alt == 3)
-    {
-      j++;
-      alt = 0;
-    }
-  alt++;
+  j++;
 }
 
 void		create_title(t_win *w,
@@ -57,7 +52,7 @@ void		create_title(t_win *w,
 
   y = -1;
   j = pos->x + (pos->y * w->text->font_png->clipable.clip_width);
-  start.y = st.y + (i * 7);
+  start.y = st.y;
   while (++y < 38)
     {
       x = -1;
@@ -66,11 +61,11 @@ void		create_title(t_win *w,
         {
 	  color = (t_color*)w->text->font_png->pixels + j;
 	  if (check_color_font(w->text->font_png, j++) == 0)
-	    tekpixel(w->pix, &start, color, 0);
+	    tekpixel(w->text->pix, &start, color, 0);
 	  start.x++;
         }
       j += (w->text->font_png->clipable.clip_width) - 32;
-      start.y += 3;
+      start.y++;
     }
   draw_title_front(w, start, st.x + (i * 33));
 }

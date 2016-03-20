@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Feb 16 01:54:54 2016 Paul Wery
-** Last update Sun Mar 20 15:15:09 2016 
+** Last update Sun Mar 20 15:19:28 2016 
 */
 
 #include <lapin.h>
@@ -98,7 +98,7 @@ void		create_text(t_win *w,
 	  start.x++;
         }
       j += (w->text->font_png->clipable.clip_width) - 32;
-      start.y +=  2;
+      start.y++;
     }
 }
 
