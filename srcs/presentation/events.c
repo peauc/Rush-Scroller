@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sun Mar 20 16:23:13 2016 
+** Last update Sun Mar 20 21:03:42 2016 Poc
 */
 
 #include <lapin.h>
@@ -51,6 +51,7 @@ t_bunny_response	loop_pres(void *data)
   pix_initialize(w->pix);
   pix_initialize(w->text->pix);
   write_name(w);
+  play_sound(w->song);
   write_title_push(w);
   pos.x = 0;
   pos.y = 0;
@@ -93,10 +94,12 @@ void	presentation(t_win *w, t_stage *list,
   init_struc_text(w);
   if (init_struc_text(w) == -1)
     return ;
+  if ((w->song = sound()) == NULL)
+    return ;
   bunny_set_loop_main_function(loop_pres);
   bunny_set_key_response((t_bunny_key)key_pres);
   bunny_set_click_response(&my_mouse);
-  bunny_loop(w->win, 0, w);
+  bunny_loop(w->win, 60, w);
   bunny_delete_clipable(&w->text->back->clipable);
   bunny_delete_clipable(&w->text->font_png->clipable);
   if (w->exit == 0)

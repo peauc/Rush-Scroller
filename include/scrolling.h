@@ -5,11 +5,12 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:37:50 2016 Paul Wery
-** Last update Sun Mar 20 15:52:48 2016 Paul Wery
+** Last update Sun Mar 20 20:59:09 2016 Poc
 */
 
 #ifndef SCROLL
 #define SCROLL
+# include "sound.h"
 
 typedef struct		s_scroll
 {

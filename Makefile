@@ -5,15 +5,16 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sun Mar 20 19:56:38 2016 Poc
+## Last update Sun Mar 20 20:33:05 2016 Poc
 ##
 
-RELEASE	=	yes
+RELEASE	=	no
 
-POC	=	no
+POC	=	yes
 
 SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/main_prog/main.c			\
+		sound/src/sound.c			\
 		srcs/main_prog/my_list.c		\
 		srcs/main_prog/tekfunction.c		\
 		srcs/Masque-Damier/dam.c		\
@@ -61,11 +62,11 @@ CMD+=	-llapin -lsfml-audio -lsfml-graphics -lsfml-window
 ifeq ($(RELEASE), yes)
 	CFLAGS	= -W  -Wall -Wextra -Werror
 else
-	CFLAGS	= -W -Wall -Wextra -Werror -g -D -F4
+	CFLAGS	= -W -Wall -Wextra -Werror -g -D DEBUG
 endif
 
 ifeq ($(POC), yes)
-	CC	= 	@ clang -F4 -g
+	CC	= 	@ clang -g
 else
 	CC	=	@ gcc
 endif

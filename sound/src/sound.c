@@ -5,29 +5,39 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sat Mar 19 17:20:44 2016 Clement Peau
-** Last update Sun Mar 20 17:29:37 2016 Clement Peau
+** Last update Sun Mar 20 21:05:03 2016 Poc
 */
 
-#include "default.h"
+#include "sound.h"
 
 int		play_sound(t_song *song)
 {
   static float		i = 0;
   static int		inc = 0;
 
-  if (i >= song->duration[inc] / 1.25)
+  if (i / FPS >= song->duration[inc] / 1000)
     {
-      bunny_sound_stop((t_bunny_sound *)song->effect);
       bunny_sound_play((t_bunny_sound *)song->effect);
       bunny_sound_pitch((t_bunny_sound *)song->effect,
-			song->freq[(int)inc] / 320);
+			song->freq[(int)inc] / 100);
       bunny_sound_play((t_bunny_sound *)song->effect);
       i = 0;
       if (++inc == song->max)
 	inc = 0;
     }
-  i += 1000 / FPS;
+  i++;
   return (0);
+}
+
+int		sound_continued(t_song *song, t_bunny_ini *ini, int i)
+{
+  if (BGF(ini, "track1", "duration", i) == NULL ||
+      BGF(ini, "track1", "frequency", i) == NULL ||
+      BGF(ini, "track1", "sample", 0) == NULL)
+    return (0);
+  song->duration[i] = atof(BGF(ini, "track1", "duration", i));
+  song->freq[i] = atof(BGF(ini, "track1", "frequency", i));
+  return (1);
 }
 
 t_song		*sound()
@@ -48,15 +58,9 @@ t_song		*sound()
       ((song->freq = bunny_malloc(sizeof(double) * (max + 1))) == NULL))
     return (NULL);
   while (i < max)
-    {
-      if (BGF(ini, "track1", "duration", i) == NULL ||
-	  BGF(ini, "track1", "frequency", i) == NULL ||
-	  BGF(ini, "track1", "sample", 0) == NULL)
-	return (NULL);
-      song->duration[i] = atof(BGF(ini, "track1", "duration", i));
-      song->freq[i] = atof(BGF(ini, "track1", "frequency", i));
-      i++;
-    }
+      sound_continued(song, ini, i++);
+  if (bunny_load_effect(BGF(ini, "track1", "sample", 0)) == NULL)
+    return (NULL);
   song->effect = bunny_load_effect(BGF(ini, "track1", "sample", 0));
   song->max = max;
   return (song);

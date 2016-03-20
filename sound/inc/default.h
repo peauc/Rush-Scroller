@@ -5,12 +5,12 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Wed Feb 17 00:48:19 2016 Clement Peau
-** Last update Sun Mar 20 17:24:46 2016 Clement Peau
+** Last update Sun Mar 20 20:14:20 2016 Poc
 */
 
-#ifndef _DEFAULT_
+#ifndef _SOUND_
 
-# define _DEFAULT_
+# define _SOUND_
 
 # include <lapin.h>
 # include <stdio.h>
@@ -37,4 +37,4 @@ typedef struct	s_data
   t_song		*song;
 }		t_data;
 
-#endif /* _DEFAULT_ */
+#endif /* _SOUND_ */
