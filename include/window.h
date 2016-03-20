@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:33:36 2016 Paul Wery
-** Last update Sun Mar 20 11:20:19 2016 
+** Last update Sun Mar 20 15:02:58 2016 Paul Wery
 */
 
 #ifndef WIN
@@ -17,6 +17,7 @@
 
 typedef struct		s_text
 {
+  t_bunny_pixelarray	*pix;
   t_bunny_pixelarray	*font_png;
   t_bunny_pixelarray	*back;
   t_bunny_position	start1;

@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sun Mar 20 14:16:05 2016 
+## Last update Sun Mar 20 15:15:34 2016 
 ##
 
 RELEASE	=	no
@@ -80,7 +80,7 @@ fclean:		clean
 		@ tput setaf 2
 		@ echo "[OK] > Deleting binaries"
 		@ rm -f $(NAME)
-		@ tput setaf 7OA
+		@ tput setaf 7
 
 re:		fclean all
 
