@@ -5,13 +5,14 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:31:36 2016 Paul Wery
-** Last update Sun Mar 20 10:44:14 2016 
+** Last update Sun Mar 20 10:46:49 2016 
 */
 
 #include <lapin.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdio.h>
 #include "demo.h"
 
 int	full_list(t_stage *list, t_win *w)
@@ -44,7 +45,7 @@ int		main()
   t_win		w;
   t_stage	*list;
 
-  bunny_set_maximum_ram(RAM * 10000000x);
+  bunny_set_maximum_ram(RAM * 10000000);
   if ((w.win = bunny_start(WINL, WINH, true, "demo")) == NULL
       || (w.pix = bunny_new_pixelarray(WINL, WINH)) == NULL)
     {
