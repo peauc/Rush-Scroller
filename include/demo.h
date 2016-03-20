@@ -5,15 +5,15 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:43:43 2016 Paul Wery
-** Last update Sun Mar 20 17:31:13 2016 Paul Wery
+** Last update Sun Mar 20 18:11:23 2016 
 */
 
 #ifndef DEM
 #define DEM
 
 #define UNUSED __attribute__((unused))
-#include <lapin.h>
 
+typedef struct	stat t_stat;
 typedef struct		s_stage
 {
   char			*stage;
@@ -21,7 +21,13 @@ typedef struct		s_stage
   struct s_stage	*prev;
 }			t_stage;
 
-typedef struct	stat t_stat;
+#include <lapin.h>
+#include "plasmy.h"
+#include "flammy.h"
+#include "window.h"
+#include "scrolling.h"
+#include "struct_resize.h"
+#include "dam.h"
 
 char	*get_next_line(int fd);
 t_stage	*create_list(void);
@@ -34,14 +40,6 @@ void	tekpixel(t_bunny_pixelarray *, t_bunny_position *pos,
 void	pix_initialize(t_bunny_pixelarray *pix);
 void	pix_initialize_txt(t_bunny_pixelarray *);
 void	put_pix_in_pix_txt(t_bunny_pixelarray *, t_bunny_pixelarray *, t_bunny_position);
-
-#include "plasmy.h"
-#include "flammy.h"
-#include "window.h"
-#include "scrolling.h"
-#include "struct_resize.h"
-#include "dam.h"
-
 void	tektext(t_win *, const char *, t_bunny_position);
 void	write_name(t_win *);
 void	write_title_push(t_win *);

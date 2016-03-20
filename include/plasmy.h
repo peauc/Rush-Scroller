@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:23:46 2015 clement peau
-** Last update Sun Mar 20 18:12:52 2016 Paul Wery
+** Last update Sun Mar 20 18:52:15 2016 Paul Wery
 */
 
 #ifndef MY_STRUCT
@@ -45,7 +45,7 @@ void			calculate_plasm(t_plasma *);
 t_color *		colorplasma();
 void			fill(t_bunny_pixelarray *);
 void			prepare(t_bunny_pixelarray *);
-int			tab_setting_plasm(t_plasma *);
+int			tab_setting_plasma(t_plasma *);
 void			plasma_plasm(t_plasma *);
 
 #endif	/* MY_STRUCT  */

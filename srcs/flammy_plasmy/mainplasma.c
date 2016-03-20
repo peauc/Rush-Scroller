@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Mar 20 18:10:54 2016 Paul Wery
+** Last update Sun Mar 20 18:51:14 2016 Paul Wery
 */
 
 #include "demo.h"
@@ -23,10 +23,10 @@ t_bunny_response	escape_plasm(t_bunny_event_state state,
 
 int			splited_main_plasm(t_plasma *data)
 {
-  data->plasma += 0.07;
+  data->plasma += 0.2;
   if (data->plasma > 5)
     data->plasma = 0.1;
-  plasma(data);
+  plasma_plasm(data);
   return (1);
 }
 
@@ -35,14 +35,14 @@ t_bunny_response       	mainloop_plasm(void *tmp)
   t_plasma		*data;
 
   data = tmp;
-  if (splited_main(data) == 0)
+  if (splited_main_plasm(data) == 0)
     return (0);
   bunny_blit(&data->window->buffer, &data->pixel->clipable, NULL);
   bunny_display(data->window);
   return (GO_ON);
 }
 
-int			plasmy_plasmy(t_win *win, t_stage *stage,
+void			plasmy_plasmy(t_win *win, t_stage *stage,
 				      t_stage *actual)
 {
   t_plasma		data;
@@ -56,9 +56,8 @@ int			plasmy_plasmy(t_win *win, t_stage *stage,
   bunny_set_loop_main_function(mainloop_plasm);
   bunny_set_key_response(&escape_plasm);
   if (bunny_loop(data.window, 60, &data) == 0)
-    return (0);
+    return ;
   bunny_free(data.color);
   bunny_delete_clipable(&data.pixel->clipable);
   bunny_stop(data.window);
-  return (1);
 }

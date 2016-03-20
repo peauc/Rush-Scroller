@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sun Mar 20 18:29:42 2016 Paul Wery
+## Last update Sun Mar 20 18:53:16 2016 Paul Wery
 ##
 
 RELEASE	=	no
@@ -37,6 +37,7 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/flammy_plasmy/fill.c		\
 		srcs/flammy_plasmy/fillplasma.c		\
 		srcs/flammy_plasmy/mainflame.c		\
+		srcs/flammy_plasmy/mainplasma.c		\
 		srcs/flammy_plasmy/plasma.c		\
 		srcs/flammy_plasmy/prepare.c 		\
 		srcs/degrade/events.c			\
