@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:31:36 2016 Paul Wery
-** Last update Sat Mar 19 22:50:30 2016 Clement Peau
+** Last update Sun Mar 20 10:44:14 2016 
 */
 
 #include <lapin.h>
@@ -44,7 +44,7 @@ int		main()
   t_win		w;
   t_stage	*list;
 
-  bunny_set_maximum_ram(RAM * 10000000);
+  bunny_set_maximum_ram(RAM * 10000000x);
   if ((w.win = bunny_start(WINL, WINH, true, "demo")) == NULL
       || (w.pix = bunny_new_pixelarray(WINL, WINH)) == NULL)
     {

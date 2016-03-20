@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sat Mar 19 22:56:18 2016 Clement Peau
+## Last update Sun Mar 20 00:09:33 2016 
 ## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
 ## Last update Sat Mar 19 19:29:33 2016 Paul Wery
 ##
@@ -25,6 +25,7 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/presentation/tektext.c		\
 		srcs/scroller_wolfs/blit_pictures.c	\
 		srcs/scroller_wolfs/events.c		\
+		srcs/scroller_wolfs/my_events.c		\
 		srcs/scroller_wolfs/moove_wolfs.c	\
 		srcs/scroller_wolfs/resize.c		\
 		srcs/scroller_wolfs/tekpixel.c		\
