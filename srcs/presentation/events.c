@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sun Mar 20 11:23:06 2016 
+** Last update Sun Mar 20 12:35:04 2016 
 */
 
 #include <lapin.h>
@@ -42,26 +42,39 @@ t_bunny_response	loop_pres(void *data)
   t_bunny_position	pos;
 
   w = (t_win*)data;
-  pix_initialize_txt(w->pix);
+  pix_initialize_txt(w->text->back);
   tektext(w, "marel maud", w->text->start1);
   pos.x = 0;
   pos.y = 0;
-  w->text->start1.x++;
-  w->text->start1.y++;
+  if (w->text->start1.x < WINL / 6)
+    w->text->start1.x += 10;
+  if (w->text->start1.y < 700)
+    w->text->start1.y += 6;
   put_pix_in_pix_txt(w->text->back, w->pix, pos);
   pix_initialize_txt(w->pix);
   tektext(w, "peau clement", w->text->start2);
   pos.x = 0;
   pos.y = 0;
-  w->text->start2.x++;
-  w->text->start2.y++;
+  if (w->text->start2.x < WINL / 6)
+    w->text->start2.x += 10;
+  if (w->text->start2.y < 800)
+    w->text->start2.y += 6;
   put_pix_in_pix_txt(w->text->back, w->pix, pos);
   pix_initialize_txt(w->pix);
   tektext(w, "wery paul", w->text->start3);
   pos.x = 0;
   pos.y = 0;
-  w->text->start3.x++;
-  w->text->start3.y++;
+  if (w->text->start3.x < WINL / 6)
+    w->text->start3.x += 8;
+  if (w->text->start3.y < 900)
+    w->text->start3.y += 4;
+  put_pix_in_pix_txt(w->text->back, w->pix, pos);
+  pix_initialize_txt(w->pix);
+  pos.x = WINL / 4;
+  pos.y = 100;
+  tektext(w, "rush troller", pos);
+  pos.x = 0;
+  pos.y = 0;
   put_pix_in_pix_txt(w->text->back, w->pix, pos);
   bunny_blit(&w->win->buffer, &w->text->back->clipable, NULL);
   bunny_display(w->win);
@@ -86,8 +99,8 @@ void	init_struc_text(t_win *w)
   w->text->start1.y = 0;
   w->text->start2.x = 100;
   w->text->start2.y = 100;
-  w->text->start3.x = 200;
-  w->text->start3.y = 200;
+  w->text->start3.x = -50;
+  w->text->start3.y = 900;
 }
 
 void	presentation(t_win *w, t_stage *list,
