@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:23:46 2015 clement peau
-** Last update Sun Mar 20 17:20:04 2016 
+** Last update Sun Mar 20 18:49:40 2016 
 */
 
 #ifndef MY_FLAMMY
@@ -49,5 +49,6 @@ void			fill(t_bunny_pixelarray *);
 void			prepare(t_bunny_pixelarray *);
 int			tab_setting(t_flame *);
 void			plasma(t_flame *);
+void			draw_scroll(t_flame *);
 
 #endif	/* MY_FLAMMy  */

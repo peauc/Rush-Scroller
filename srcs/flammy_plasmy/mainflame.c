@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Mar 20 18:05:23 2016 
+** Last update Sun Mar 20 18:38:10 2016 
 */
 
 #include "demo.h"
@@ -31,6 +31,7 @@ int			splited_main(t_flame *data)
 {
   first_lines(data);
   calculate(data);
+  draw_scroll(data);
   return (1);
 }
 
@@ -62,7 +63,6 @@ void			flamy_flamy(t_win *win, t_stage *stage, t_stage *actual)
   bunny_set_key_response(&escape);
   if (bunny_loop(data.window, 20, &data) == 0)
     return ;
-  /* bunny_free(data.tab); */
   bunny_free(data.color);
   bunny_delete_clipable(&data.pixel->clipable);
   if (data.exit == 0)
