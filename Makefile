@@ -5,10 +5,10 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sun Mar 20 19:53:47 2016 Poc
+## Last update Sun Mar 20 19:56:38 2016 Poc
 ##
 
-RELEASE	=	no
+RELEASE	=	yes
 
 POC	=	no
 
@@ -47,6 +47,9 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/degrade/tekpix.c			\
 		srcs/starfield/frontal.c		\
 		srcs/starfield/starfield.c		\
+		srcs/flag/calc.c			\
+		srcs/flag/event.c			\
+		srcs/flag/fill.c			\
 
 OBJ	=	$(SRC:.c=.o)
 

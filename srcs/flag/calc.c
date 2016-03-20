@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Jan 14 00:16:29 2016
-** Last update Thu Jan 14 07:22:07 2016 
+** Last update Sun Mar 20 19:29:09 2016 Marel la plus belle <3
 */
 
-#include "struct.h"
+#include "demo.h"
 
 void			cpy_pix(t_bunny_pixelarray *src,
 				t_bunny_pixelarray *dest,
@@ -31,7 +31,7 @@ void			cpy_pix(t_bunny_pixelarray *src,
 	    * j + i;
 	  pos.x = i + DEST_WIDTH / 2 - SRC_WIDTH / 2;
 	  pos.y = (j + DEST_HEIGHT / 2 - SRC_HEIGHT / 2) - modifier;
-	  tekpixel(dest, pos, color->full);
+	  tekpixel_int(dest, &pos, color->full);
 	  j++;
 	}
       j = 0;
