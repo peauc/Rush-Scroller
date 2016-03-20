@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sun Mar 20 16:46:05 2016 Paul Wery
-** Last update Sun Mar 20 17:27:28 2016 Paul Wery
+** Last update Sun Mar 20 17:35:30 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -23,8 +23,6 @@ t_bunny_response	keys(t_bunny_event_state state,
       w->exit = 1;
       return (EXIT_ON_SUCCESS);
     }
-  if (state == GO_UP && keysym == BKS_RETURN)
-    return (EXIT_ON_SUCCESS);
   return (GO_ON);
 }
 
