@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sat Mar 19 17:20:44 2016 Clement Peau
-** Last update Sat Mar 19 22:44:14 2016 Clement Peau
+** Last update Sun Mar 20 13:52:50 2016 Clement Peau
 */
 
 #include "default.h"
@@ -47,9 +47,9 @@ int		sound()
     {
       i++;
       /* bunny_sound_stop((t_bunny_sound *)music); */
-      bunny_sound_pitch((t_bunny_sound *)music, song.freq[i] / 440);
+      bunny_sound_pitch((t_bunny_sound *)music, song.freq[i] / 320);
       bunny_sound_play((t_bunny_sound *)music);
-      usleep(song.duration[i] * 1200);
+      usleep(song.duration[i] * 1100);
     }
   free(song.freq);
   free(song.duration);
