@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Mar 20 19:42:12 2016 Marel la plus belle <3
+** Last update Sun Mar 20 19:59:36 2016 Poc
 */
 
 #include "demo.h"
@@ -27,7 +27,7 @@ t_bunny_response	escape_flag(t_bunny_event_state state,
   return (GO_ON);
 }
 
-t_bunny_response       	mainloop_flag(t_data *data)
+t_bunny_response       	mainloop_flag(t_flag *data)
 {
   fill(data->pixelarray);
   data->modifier += 1;
@@ -39,7 +39,7 @@ t_bunny_response       	mainloop_flag(t_data *data)
 
 void			flag(t_win *w, t_stage *list, t_stage *it)
 {
-  t_data		data;
+  t_flag		data;
 
   w->exit = 0;
   data.modifier = 0;

@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Mar 20 18:54:10 2016 
+** Last update Sun Mar 20 19:53:39 2016 Poc
 */
 
 #include "demo.h"
@@ -74,7 +74,7 @@ void		flamy_flamy(t_win *win, t_stage *stage, t_stage *actual)
     return ;
   if ((tab_setting(&data)) == 0)
     return ;
-  bunny_set_loop_main_function(mainloop);
+  bunny_set_loop_main_function((t_bunny_loop)mainloop);
   bunny_set_key_response(&escape);
   if (bunny_loop(data.window, 20, &data) == 0)
     return ;
