@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sun Mar 20 16:05:46 2016 
+## Last update Sun Mar 20 16:21:41 2016 
 ##
 
 RELEASE	=	no
@@ -23,6 +23,7 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/presentation/tektext.c		\
 		srcs/presentation/title.c		\
 		srcs/presentation/push.c		\
+		srcs/presentation/loop.c		\
 		srcs/presentation/tekpixel_int.c	\
 		srcs/scroller_wolfs/blit_pictures.c	\
 		srcs/scroller_wolfs/events.c		\

@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Feb 16 01:54:54 2016 Paul Wery
-** Last update Sun Mar 20 16:05:59 2016 
+** Last update Sun Mar 20 16:14:39 2016 
 */
 
 #include <lapin.h>
@@ -27,7 +27,7 @@ void		draw_title_front(t_win *w,
     {
       start.x = st.x;
       while (--start.x > i - 1)
-	tekpixel_int(w->text->pix, &start, BLACK);
+	tekpixel_int(w->text->pix, &start, 0xff55aabb);
       start.y--;
     }
   if (l == 3)
