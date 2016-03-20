@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:43:43 2016 Paul Wery
-** Last update Sun Mar 20 11:21:17 2016 
+** Last update Sun Mar 20 17:26:37 2016 Paul Wery
 */
 
 #ifndef DEM
@@ -41,5 +41,10 @@ void	put_pix_in_pix_txt(t_bunny_pixelarray *, t_bunny_pixelarray *, t_bunny_posi
 
 void	tektext(t_win *, const char *, t_bunny_position);
 void    next_stage(t_win *w, t_stage *list, t_stage *it);
+void	deg(t_win *w, t_stage *list, t_stage *it);
+int	degraded(t_win *w);
+void	tekpix(t_bunny_pixelarray *pix,
+	       t_bunny_position *pos,
+	       t_color *color);
 
 #endif /* !DEM */

@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sun Mar 20 15:58:04 2016 Paul Wery
+** Last update Sun Mar 20 17:24:59 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -68,12 +68,14 @@ void			damier(t_win *w, t_stage *list,
   pos.y = WINH;
   d.win = w->win;
   d.exit = 0;
-  if ((d.pix = bunny_load_pixelarray("map/dragon.jpeg")) == NULL)
+  bunny_delete_clipable(&w->pix->clipable);
+  if ((w->pix = bunny_load_pixelarray("map/dragon.jpeg")) == NULL)
     return ;
-  if ((d.pix = resize_picture(d.pix, pos)) == NULL)
+  if ((w->pix = resize_picture(w->pix, pos)) == NULL)
     return ;
   if ((d.filter = bunny_new_pixelarray(WINL, WINH)) == NULL)
     return ;
+  d.pix = w->pix;
   bunny_set_loop_main_function(loopi);
   bunny_set_key_response((t_bunny_key)keyi);
   bunny_loop(w->win, 0, &d);
