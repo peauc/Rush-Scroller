@@ -5,7 +5,7 @@
 ** Login   <marel_m@epitech.net>
 **
 ** Started on  Sun Mar 20 18:34:59 2016
-** Last update Sun Mar 20 18:48:47 2016 
+** Last update Sun Mar 20 18:56:52 2016 
 */
 
 #include "demo.h"
@@ -18,7 +18,7 @@ void			draw_scroll(t_flame *data)
   pos.x = -1 + i;
   while (++pos.x < WINL)
     {
-      pos.y = WINH - 120;
+      pos.y = WINH - 500;
       while (++pos.y < WINH)
 	tekpixel_int(data->pixel, &pos, BLACK);
     }
