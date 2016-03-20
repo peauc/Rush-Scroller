@@ -5,9 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sun Mar 20 10:43:53 2016 Clement Peau
-## Started on  Sat Mar 19 00:33:08 2016 Paul Wery
-## Last update Sat Mar 19 19:29:33 2016 Paul Wery
+## Last update Sun Mar 20 15:15:34 2016 
 ##
 
 RELEASE	=	no
@@ -23,12 +21,14 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/Masque-Damier/events.c		\
 		srcs/presentation/events.c		\
 		srcs/presentation/tektext.c		\
+		srcs/presentation/title.c		\
+		srcs/presentation/tekpixel_int.c	\
 		srcs/scroller_wolfs/blit_pictures.c	\
 		srcs/scroller_wolfs/events.c		\
+		srcs/scroller_wolfs/my_events.c		\
 		srcs/scroller_wolfs/moove_wolfs.c	\
 		srcs/scroller_wolfs/resize.c		\
 		srcs/scroller_wolfs/tekpixel.c		\
-		srcs/scroller_wolfs/my_events.c		\
 		srcs/incendie/color.c			\
 		srcs/incendie/colorplasma.c		\
 		srcs/incendie/draw.c			\
@@ -80,7 +80,7 @@ fclean:		clean
 		@ tput setaf 2
 		@ echo "[OK] > Deleting binaries"
 		@ rm -f $(NAME)
-		@ tput setaf 7OA
+		@ tput setaf 7
 
 re:		fclean all
 
