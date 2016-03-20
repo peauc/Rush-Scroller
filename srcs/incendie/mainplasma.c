@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sat Mar 19 22:40:39 2016 Clement Peau
+** Last update Sun Mar 20 12:22:46 2016 Clement Peau
 */
 
 #include "rush_plasma.h"
@@ -37,17 +37,19 @@ t_bunny_response       	mainloop(void *tmp)
   data = tmp;
   if (splited_main(data) == 0)
     return (0);
+  starfield();
   bunny_blit(&data->window->buffer, &data->pixel->clipable, NULL);
   bunny_display(data->window);
   return (GO_ON);
 }
 
-int			plasmy_plasmy()
+int			plasmy_plasmy(t_win *win, t_stage *stage,
+				      t_stage *actual)
 {
   t_plasma		data;
 
-  data.window = bunny_start(1920, 1080, false, "test");
-  data.pixel = bunny_new_pixelarray(1920, 1080);
+  data.window = win->win;
+  data.pixel = win->pix;
   fillplasma(data.pixel);
   tab_setting_plasma(&data);
   data.color = colorplasma();
