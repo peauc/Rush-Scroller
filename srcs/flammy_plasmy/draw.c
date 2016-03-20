@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Fri Dec  4 21:56:24 2015
-** Last update Sat Mar 19 22:29:07 2016 Clement Peau
+** Last update Sun Mar 20 17:12:58 2016 
 */
 
-#include "rush_incendie.h"
+#include "demo.h"
 
 int			tab_setting(t_flame *data)
 {

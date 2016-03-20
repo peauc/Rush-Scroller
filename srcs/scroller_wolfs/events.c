@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sat Mar 19 18:56:57 2016 Paul Wery
+** Last update Sun Mar 20 15:55:12 2016 Paul Wery
 */
 
 #include <lapin.h>
@@ -19,6 +19,11 @@ t_bunny_response	key(t_bunny_event_state state,
 
   s = (t_scroll*)data;
   if (state == GO_UP && keysym == BKS_ESCAPE)
+    {
+      s->exit = 1;
+      return (EXIT_ON_SUCCESS);
+    }
+  if (state == GO_UP && keysym == BKS_RETURN)
     return (EXIT_ON_SUCCESS);
   events_wolf(s, state, keysym);
   return (GO_ON);
@@ -47,13 +52,17 @@ void	delete_scroll(t_scroll *s, t_win *w,
   bunny_delete_clipable(&s->pix_three->clipable);
   bunny_delete_clipable(&s->wolf->clipable);
   bunny_delete_clipable(&s->pix_sol->clipable);
+
+
   if (it->next != list)
     {
       if ((*(void **)(&next_stage) = tekfunction(it->next->stage)) == NULL)
 	return ;
-      (*next_stage)(w, list, it->next);
+      if (s->exit == 0)
+	(*next_stage)(w, list, it->next);
     }
 }
+
 
 int	ini_scroll(t_scroll *s, t_win *w)
 {
@@ -78,6 +87,7 @@ int	ini_scroll(t_scroll *s, t_win *w)
   s->state = 0;
   s->next = 0;
   s->next_stage = 0;
+  s->exit = 0;
   return (0);
 }
 

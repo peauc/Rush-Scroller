@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:33:36 2016 Paul Wery
-** Last update Sun Mar 20 15:26:02 2016 Paul Wery
+** Last update Sun Mar 20 17:11:55 2016 
 */
 
 #ifndef WIN
@@ -14,6 +14,7 @@
 #define WINL (1920)
 #define WINH (1080)
 #define RAM (100)
+# include <lapin.h>
 
 typedef struct		s_text
 {
@@ -30,11 +31,15 @@ typedef struct		s_win
 {
   t_bunny_window	*win;
   t_bunny_pixelarray	*pix;
+  int			exit;
   t_text		*text;
 }			t_win;
 
 void	title(t_win *w, const char *str,
 	      t_bunny_position st);
 int	check_color_font(t_bunny_pixelarray *font_png, int i);
+void	tekpixel_int(t_bunny_pixelarray *pix,
+		     t_bunny_position *pos,
+		     unsigned int color);
 
 #endif /* !WIN */
