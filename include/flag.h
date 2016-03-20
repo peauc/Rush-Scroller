@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:23:46 2015 clement peau
-** Last update Thu Jan 14 01:33:22 2016 
+** Last update Sun Mar 20 19:32:58 2016 Marel la plus belle <3
 */
 
 #ifndef MY_STRUCT
@@ -32,9 +32,9 @@ typedef struct		s_data
   double		modifier;
 }			t_data;
 
-void cpy_pix(t_bunny_pixelarray *, t_bunny_pixelarray *, double);
-void tekpixel(t_bunny_pixelarray *, t_bunny_position, unsigned int);
-void fill(t_bunny_pixelarray *);
-void prepare(t_bunny_pixelarray *);
+void			cpy_pix(t_bunny_pixelarray *, t_bunny_pixelarray *,
+				double);
+void			fill_flag(t_bunny_pixelarray *);
+void			prepare(t_bunny_pixelarray *);
 
 #endif	/* MY_STRUCT  */

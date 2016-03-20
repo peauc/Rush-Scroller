@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sun Mar 20 19:06:38 2016 
+## Last update Sun Mar 20 19:27:13 2016 Marel la plus belle <3
 ##
 
 RELEASE	=	no
@@ -42,6 +42,9 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/degrade/tekpix.c			\
 		srcs/starfield/frontal.c		\
 		srcs/starfield/starfield.c		\
+		srcs/flag/calc.c			\
+		srcs/flag/event.c			\
+		srcs/flag/fill.c			\
 
 OBJ	=	$(SRC:.c=.o)
 

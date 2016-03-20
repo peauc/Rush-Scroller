@@ -5,12 +5,12 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Jan 14 01:10:48 2016
-** Last update Thu Jan 14 01:20:12 2016 
+** Last update Sun Mar 20 19:32:45 2016 Marel la plus belle <3
 */
 
-#include "struct.h"
+#include "demo.h"
 
-void		fill(t_bunny_pixelarray *pix)
+void		fill_flag(t_bunny_pixelarray *pix)
 {
   int		i;
   t_color	*color;
