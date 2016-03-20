@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Mar 20 17:13:19 2016 
+** Last update Sun Mar 20 18:05:23 2016 
 */
 
 #include "demo.h"
@@ -62,7 +62,6 @@ void			flamy_flamy(t_win *win, t_stage *stage, t_stage *actual)
   bunny_set_key_response(&escape);
   if (bunny_loop(data.window, 20, &data) == 0)
     return ;
-  bunny_stop(data.window);
   /* bunny_free(data.tab); */
   bunny_free(data.color);
   bunny_delete_clipable(&data.pixel->clipable);
