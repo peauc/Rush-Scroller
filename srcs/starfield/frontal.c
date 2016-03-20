@@ -5,13 +5,14 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sun Mar 20 13:20:17 2016 Clement Peau
-** Last update Sun Mar 20 13:44:32 2016 Clement Peau
+** Last update Sun Mar 20 18:33:42 2016 Paul Wery
 */
 
-#include "default.h"
+#include <lapin.h>
+#include "demo.h"
 
-void			frontal_stars(t_bunny_pixelarray *pix, t_star *star,
-				      int nb)
+void			frontal_stars(t_bunny_pixelarray *pix,
+				      t_star *star, int nb)
 {
   int			i;
   t_bunny_position	pos;

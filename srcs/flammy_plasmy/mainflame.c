@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Mar 20 17:13:19 2016 
+** Last update Sun Mar 20 18:47:48 2016 Paul Wery
 */
 
 #include "demo.h"
@@ -22,37 +22,52 @@ t_bunny_response	escape(t_bunny_event_state state,
       flame->exit = 1;
       return (EXIT_ON_SUCCESS);
     }
-  if (state == GO_UP && key == BKS_RETURN)
+  else if  (state == GO_UP && key == BKS_RETURN)
     return (EXIT_ON_SUCCESS);
+  else if (state == GO_UP && key == BKS_SPACE)
+    {
+      if (flame->state == 0)
+	flame->state = 1;
+      else
+	flame->state = 0;
+    }
   return (GO_ON);
 }
 
-int			splited_main(t_flame *data)
+int	splited_main(t_flame *data)
 {
   first_lines(data);
   calculate(data);
   return (1);
 }
 
-t_bunny_response       	mainloop(void *tmp)
+t_bunny_response	mainloop(void *tmp)
 {
   t_flame		*data;
 
   data = tmp;
   if (splited_main(data) == 0)
     return (0);
+  if (data->state == 0)
+    starfield(data->pixel, data->star, 500);
+  else
+    frontal_stars(data->pixel, data->star, 500);
   bunny_blit(&data->window->buffer, &data->pixel->clipable, NULL);
   bunny_display(data->window);
   return (GO_ON);
 }
 
-void			flamy_flamy(t_win *win, t_stage *stage, t_stage *actual)
+void		flamy_flamy(t_win *win, t_stage *stage, t_stage *actual)
 {
-  t_flame		data;
+  t_flame	data;
 
   data.exit = 0;
+  data.state = 0;
   data.window = win->win;
-  data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT);
+  if ((data.pixel = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
+    return ;
+  if ((data.star = init_starfield(data.pixel, 500)) == NULL)
+    return ;
   fill(data.pixel);
   if ((data.color = palette()) == NULL)
     return ;
@@ -63,11 +78,8 @@ void			flamy_flamy(t_win *win, t_stage *stage, t_stage *actual)
   if (bunny_loop(data.window, 20, &data) == 0)
     return ;
   bunny_stop(data.window);
-  /* bunny_free(data.tab); */
   bunny_free(data.color);
   bunny_delete_clipable(&data.pixel->clipable);
   if (data.exit == 0)
-    {
-      next_stage(win, stage, actual);
-    }
+    next_stage(win, stage, actual);
 }

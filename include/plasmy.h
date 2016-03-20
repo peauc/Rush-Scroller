@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:23:46 2015 clement peau
-** Last update Sun Mar 20 17:23:35 2016 
+** Last update Sun Mar 20 18:12:52 2016 Paul Wery
 */
 
 #ifndef MY_STRUCT

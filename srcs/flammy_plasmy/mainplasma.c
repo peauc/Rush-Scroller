@@ -5,7 +5,7 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Mar 20 17:11:23 2016 
+** Last update Sun Mar 20 18:10:54 2016 Paul Wery
 */
 
 #include "demo.h"
@@ -37,7 +37,6 @@ t_bunny_response       	mainloop_plasm(void *tmp)
   data = tmp;
   if (splited_main(data) == 0)
     return (0);
-  starfield();
   bunny_blit(&data->window->buffer, &data->pixel->clipable, NULL);
   bunny_display(data->window);
   return (GO_ON);
