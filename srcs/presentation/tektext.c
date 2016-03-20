@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Feb 16 01:54:54 2016 Paul Wery
-** Last update Sun Mar 20 00:02:59 2016 
+** Last update Sun Mar 20 11:19:59 2016 
 */
 
 #include <lapin.h>
@@ -72,10 +72,10 @@ int     check_color_font(t_bunny_pixelarray *font_png,
   return (0);
 }
 
-void		create_text(t_text *t,
-			    t_bunny_pixelarray *pix,
+void		create_text(t_win *w,
 			    t_bunny_position *pos,
-			    int i)
+			    int i,
+			    t_bunny_position st)
 {
   t_color		*color;
   t_bunny_position	start;
@@ -84,27 +84,27 @@ void		create_text(t_text *t,
   int			j;
 
   y = -1;
-  j = pos->x + (pos->y * t->font_png->clipable.clip_width);
-  start.y = 0;
+  j = pos->x + (pos->y * w->text->font_png->clipable.clip_width);
+  start.y = st.y;
   while (++y < 38)
     {
       x = -1;
-      start.x = t->start->x + (i * 33);
+      start.x = st.x + (i * 33);
       while (++x < 32)
         {
-	  color = (t_color*)t->font_png->pixels + j;
-	  if (check_color_font(t->font_png, j++) == 0)
-	    tekpixel(pix, &start, color, 0);
+	  color = (t_color*)w->text->font_png->pixels + j;
+	  if (check_color_font(w->text->font_png, j++) == 0)
+	    tekpixel(w->pix, &start, color, 0);
 	  start.x++;
         }
-      j += (t->font_png->clipable.clip_width) - 32;
+      j += (w->text->font_png->clipable.clip_width) - 32;
       start.y++;
     }
 }
 
-void			tektext(t_text *t,
-				t_bunny_pixelarray *out,
-				const char *str)
+void			tektext(t_win *w,
+				const char *str,
+				t_bunny_position st)
 {
   int			n;
   char			*text;
@@ -124,7 +124,7 @@ void			tektext(t_text *t,
 	{
 	  pos.x = n % 10 * 32;
 	  pos.y = n / 10 * 39;
-	  create_text(t, out, &pos, i);
+	  create_text(w, &pos, i, st);
 	}
       i++;
     }

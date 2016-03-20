@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:43:43 2016 Paul Wery
-** Last update Sun Mar 20 00:07:35 2016 
+** Last update Sun Mar 20 11:21:17 2016 
 */
 
 #ifndef DEM
@@ -39,7 +39,7 @@ void	put_pix_in_pix_txt(t_bunny_pixelarray *, t_bunny_pixelarray *, t_bunny_posi
 #include "struct_resize.h"
 #include "dam.h"
 
-void	tektext(t_text *, t_bunny_pixelarray *, const char *);
+void	tektext(t_win *, const char *, t_bunny_position);
 void    next_stage(t_win *w, t_stage *list, t_stage *it);
 
 #endif /* !DEM */

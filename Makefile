@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sun Mar 20 10:47:01 2016 
+## Last update Sun Mar 20 10:50:15 2016 
 ##
 
 RELEASE	=	no
@@ -27,7 +27,6 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/scroller_wolfs/moove_wolfs.c	\
 		srcs/scroller_wolfs/resize.c		\
 		srcs/scroller_wolfs/tekpixel.c		\
-		srcs/scroller_wolfs/my_events.c		\
 		srcs/incendie/color.c			\
 		srcs/incendie/colorplasma.c		\
 		srcs/incendie/draw.c			\
