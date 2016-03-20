@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Sat Mar 19 02:35:09 2016 Paul Wery
-** Last update Sun Mar 20 15:35:35 2016 
+** Last update Sun Mar 20 16:05:20 2016 
 */
 
 #include <lapin.h>
@@ -68,6 +68,9 @@ t_bunny_response	loop_pres(void *data)
   pos.x = WINL / 4 - 350;
   pos.y = 200;
   title(w, "rush troller", pos);
+  pos.x = WINL - 500;
+  pos.y = WINH - 250;
+  push(w, "push the button", pos);
   pos.x = 0;
   pos.y = 0;
   put_pix_in_pix_txt(w->pix, w->text->back, pos);
