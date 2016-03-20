@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:33:36 2016 Paul Wery
-** Last update Sun Mar 20 15:42:44 2016 Paul Wery
+** Last update Sun Mar 20 17:11:55 2016 
 */
 
 #ifndef WIN
@@ -14,6 +14,7 @@
 #define WINL (1920)
 #define WINH (1080)
 #define RAM (100)
+# include <lapin.h>
 
 typedef struct		s_text
 {

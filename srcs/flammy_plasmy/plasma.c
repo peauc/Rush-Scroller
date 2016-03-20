@@ -5,10 +5,9 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sun Dec  6 16:52:40 2015
-** Last update Sun Mar 20 10:41:04 2016 Clement Peau
+** Last update Sun Mar 20 17:24:07 2016 
 */
 
-#include "rush_plasma.h"
 #include "demo.h"
 
 int	tab_setting_plasma(t_plasma *data)
@@ -25,7 +24,7 @@ int	tab_setting_plasma(t_plasma *data)
   return (1);
 }
 
-void	 plasma(t_plasma *data)
+void			plasma_plasm(t_plasma *data)
 {
   int			i;
   t_bunny_position	pos;

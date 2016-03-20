@@ -1,14 +1,14 @@
 /*
-** colorplasma.c for lin /home/peau_c/gfx_incendie
+** colorplasma.c for lin /home/peau_c/gfx_scroller
 **
 ** Made by
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Sun Dec  6 17:18:49 2015
-** Last update Sat Mar 19 19:32:51 2016 Clement Peau
+** Last update Sun Mar 20 17:12:50 2016 
 */
 
-#include "rush_incendie.h"
+#include "demo.h"
 
 void	redtoblue(int i, t_color *palet)
 {
@@ -39,10 +39,10 @@ void	redtoblue(int i, t_color *palet)
     }
 }
 
-t_color	*colorplasma()
+t_color		*colorplasma()
 {
-  int	i;
-  t_color *palet;
+  int		i;
+  t_color	*palet;
 
   i = 0;
   if ((palet = bunny_malloc(96 * sizeof(t_color))) == NULL)

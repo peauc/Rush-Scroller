@@ -5,7 +5,7 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Feb 16 01:54:54 2016 Paul Wery
-** Last update Sun Mar 20 15:19:28 2016 
+** Last update Sun Mar 20 16:24:45 2016 
 */
 
 #include <lapin.h>
@@ -28,13 +28,13 @@ void		pix_initialize_txt(t_bunny_pixelarray *pix)
     }
 }
 
-void                    put_pix_in_pix_txt(t_bunny_pixelarray *pix,
+void			put_pix_in_pix_txt(t_bunny_pixelarray *pix,
 					   t_bunny_pixelarray *src,
 					   t_bunny_position pos)
 {
-  t_bunny_position      posi;
-  t_color               *color;
-  int                   i;
+  t_bunny_position	posi;
+  t_color		*color;
+  int			i;
 
   posi.y = 0;
   while (pos.y < WINH && posi.y < src->clipable.clip_height)
@@ -55,13 +55,13 @@ void                    put_pix_in_pix_txt(t_bunny_pixelarray *pix,
     }
 }
 
-int     check_color_font(t_bunny_pixelarray *font_png,
-			 int i)
+int		check_color_font(t_bunny_pixelarray *font_png,
+				 int i)
 {
-  int           r;
-  int           b;
-  int           g;
-  t_color       *color;
+  int		r;
+  int		b;
+  int		g;
+  t_color	*color;
 
   color = (t_color*)font_png->pixels;
   r = color[i].full & 0xFF;

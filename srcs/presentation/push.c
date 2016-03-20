@@ -5,14 +5,14 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Tue Feb 16 01:54:54 2016 Paul Wery
-** Last update Sun Mar 20 16:14:39 2016 
+** Last update Sun Mar 20 16:03:05 2016 
 */
 
 #include <lapin.h>
 #include <stdio.h>
 #include "demo.h"
 
-void		draw_title_front(t_win *w,
+void		draw_push_front(t_win *w,
 				 t_bunny_position st,
 				 int i)
 {
@@ -27,10 +27,10 @@ void		draw_title_front(t_win *w,
     {
       start.x = st.x;
       while (--start.x > i - 1)
-	tekpixel_int(w->text->pix, &start, 0xff55aabb);
+	tekpixel_int(w->text->pix, &start, 0x9e9e9e);
       start.y--;
     }
-  if (l == 3)
+  if (l == 6)
     {
       j++;
       l = 0;
@@ -38,7 +38,7 @@ void		draw_title_front(t_win *w,
   l++;
 }
 
-void		create_title(t_win *w,
+void		create_push(t_win *w,
 			    t_bunny_position *pos,
 			    int i,
 			    t_bunny_position st)
@@ -66,10 +66,10 @@ void		create_title(t_win *w,
       j += (w->text->font_png->clipable.clip_width) - 32;
       start.y++;
     }
-  draw_title_front(w, start, st.x + (i * 33));
+  draw_push_front(w, start, st.x + (i * 33));
 }
 
-void			title(t_win *w,
+void			push(t_win *w,
 			      const char *str,
 			      t_bunny_position st)
 {
@@ -91,7 +91,7 @@ void			title(t_win *w,
 	{
 	  pos.x = n % 10 * 32;
 	  pos.y = n / 10 * 39;
-	  create_title(w, &pos, i, st);
+	  create_push(w, &pos, i, st);
 	}
       i++;
     }

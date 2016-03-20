@@ -5,10 +5,10 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Fri Mar 18 19:55:29 2016 Clement Peau
-** Last update Sat Mar 19 19:32:15 2016 Clement Peau
+** Last update Sun Mar 20 17:12:42 2016 
 */
 
-#include "rush_incendie.h"
+#include "demo.h"
 
 int		black_red(int i, t_color *col)
 {
