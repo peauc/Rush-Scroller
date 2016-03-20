@@ -5,7 +5,7 @@
 ## Login   <peau_c@epitech.net>
 ##
 ## Started on  Mon Jan 18 14:44:16 2016 Clement Peau
-## Last update Sun Mar 20 16:21:41 2016 
+## Last update Sun Mar 20 17:09:54 2016 
 ##
 
 RELEASE	=	no
@@ -31,14 +31,14 @@ SRC	=	srcs/main_prog/get_next_line.c		\
 		srcs/scroller_wolfs/moove_wolfs.c	\
 		srcs/scroller_wolfs/resize.c		\
 		srcs/scroller_wolfs/tekpixel.c		\
-		srcs/incendie/color.c			\
-		srcs/incendie/colorplasma.c		\
-		srcs/incendie/draw.c			\
-		srcs/incendie/fill.c			\
-		srcs/incendie/fillplasma.c		\
-		srcs/incendie/mainflame.c		\
-		srcs/incendie/plasma.c			\
-		srcs/incendie/prepare.c 		\
+		srcs/flammy_plasmy/color.c		\
+		srcs/flammy_plasmy/colorplasma.c	\
+		srcs/flammy_plasmy/draw.c		\
+		srcs/flammy_plasmy/fill.c		\
+		srcs/flammy_plasmy/fillplasma.c		\
+		srcs/flammy_plasmy/mainflame.c		\
+		srcs/flammy_plasmy/plasma.c		\
+		srcs/flammy_plasmy/prepare.c 		\
 
 OBJ	=	$(SRC:.c=.o)
 

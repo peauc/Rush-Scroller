@@ -5,13 +5,14 @@
 ** Login   <wery_p@epitech.net>
 **
 ** Started on  Fri Mar 18 23:43:43 2016 Paul Wery
-** Last update Sun Mar 20 16:26:40 2016 
+** Last update Sun Mar 20 17:22:36 2016 
 */
 
 #ifndef DEM
 #define DEM
 
 #define UNUSED __attribute__((unused))
+#include <lapin.h>
 
 typedef struct		s_stage
 {
@@ -34,6 +35,8 @@ void	pix_initialize(t_bunny_pixelarray *pix);
 void	pix_initialize_txt(t_bunny_pixelarray *);
 void	put_pix_in_pix_txt(t_bunny_pixelarray *, t_bunny_pixelarray *, t_bunny_position);
 
+#include "plasmy.h"
+#include "flammy.h"
 #include "window.h"
 #include "scrolling.h"
 #include "struct_resize.h"

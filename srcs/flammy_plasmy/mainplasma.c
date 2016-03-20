@@ -5,14 +5,14 @@
 ** Login   <peau_c@epitech.net>
 **
 ** Started on  Thu Nov 19 10:13:25 2015 clement peau
-** Last update Sun Mar 20 12:22:46 2016 Clement Peau
+** Last update Sun Mar 20 17:11:23 2016 
 */
 
-#include "rush_plasma.h"
+#include "demo.h"
 
-t_bunny_response	escape(t_bunny_event_state state,
-			       t_bunny_keysym key,
-			       void *data)
+t_bunny_response	escape_plasm(t_bunny_event_state state,
+				     t_bunny_keysym key,
+				     void *data)
 {
   state = state;
   data = data;
@@ -21,7 +21,7 @@ t_bunny_response	escape(t_bunny_event_state state,
   return (GO_ON);
 }
 
-int			splited_main(t_plasma *data)
+int			splited_main_plasm(t_plasma *data)
 {
   data->plasma += 0.07;
   if (data->plasma > 5)
@@ -30,7 +30,7 @@ int			splited_main(t_plasma *data)
   return (1);
 }
 
-t_bunny_response       	mainloop(void *tmp)
+t_bunny_response       	mainloop_plasm(void *tmp)
 {
   t_plasma		*data;
 
@@ -54,8 +54,8 @@ int			plasmy_plasmy(t_win *win, t_stage *stage,
   tab_setting_plasma(&data);
   data.color = colorplasma();
   data.boole = 0;
-  bunny_set_loop_main_function(mainloop);
-  bunny_set_key_response(&escape);
+  bunny_set_loop_main_function(mainloop_plasm);
+  bunny_set_key_response(&escape_plasm);
   if (bunny_loop(data.window, 60, &data) == 0)
     return (0);
   bunny_free(data.color);
